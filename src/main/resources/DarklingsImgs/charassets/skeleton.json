@@ -1896,7 +1896,7 @@
       },
       "eye3b": {
         "eye3b": {
-          "path": "eye3",
+          "path": "eye5",
           "x": 0.18,
           "y": -0.01,
           "rotation": -65.43,
@@ -1906,7 +1906,7 @@
       },
       "eye4b": {
         "eye4b": {
-          "path": "eye4",
+          "path": "eye6",
           "x": 0.55,
           "y": -0.57,
           "rotation": -65.43,
@@ -1916,7 +1916,7 @@
       },
       "eye3c": {
         "eye3c": {
-          "path": "eye3",
+          "path": "eye7",
           "x": 0.18,
           "y": -0.01,
           "rotation": -65.43,
@@ -1926,7 +1926,7 @@
       },
       "eye4c": {
         "eye4c": {
-          "path": "eye4",
+          "path": "eye8",
           "x": 0.55,
           "y": -0.57,
           "rotation": -65.43,
