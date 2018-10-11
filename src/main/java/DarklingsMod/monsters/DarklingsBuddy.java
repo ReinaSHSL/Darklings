@@ -1,6 +1,5 @@
 package DarklingsMod.monsters;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.LoseBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -22,16 +21,16 @@ public class DarklingsBuddy extends AbstractFriendlyMonster {
     private boolean hasAttacked = false;
     private AbstractMonster target;
 
-    public DarklingsBuddy(float offSetX) {
-        super(NAME, ID, 12,
-                null, -2.0F, 10.0F, 230.0F, 240.0F, "summons/Lily.png", offSetX, 0);
+    public DarklingsBuddy(float offsetY) {
+        super(NAME, ID, 20,
+                null, -2.0F, 10.0F, 220.0F, 240.0F,
+                "DarklingsImgs/buddy/DarklingBuddy.png", -935, offsetY);
 
     }
 
     @Override
     public void applyStartOfTurnPowers() {
         AbstractDungeon.actionManager.addToBottom(new LoseBlockAction(this, this, this.currentBlock));
-        System.out.println(this.name + " " + this.currentHealth);
     }
 
     @Override
@@ -72,9 +71,10 @@ public class DarklingsBuddy extends AbstractFriendlyMonster {
         return tempInfo;
     }
 
-
     //Not needed unless doing some kind of random move like normal Monsters
     @Override
     protected void getMove(int i) {
     }
+
+
 }

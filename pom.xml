@@ -24,7 +24,7 @@
         <dependency>
             <groupId>modthespire</groupId>
             <artifactId>modthespire</artifactId>
-            <version>1.5.2</version>
+            <version>3.2.0</version>
             <scope>system</scope>
             <systemPath>${basedir}/../lib/ModTheSpire.jar</systemPath>
         </dependency>

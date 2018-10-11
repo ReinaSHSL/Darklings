@@ -3,15 +3,19 @@ package DarklingsMod;
 import DarklingsMod.character.Darklings;
 import DarklingsMod.enums.AbstractCardEnum;
 import DarklingsMod.enums.DarklingsEnum;
+import DarklingsMod.monsters.DarklingsBuddy;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
 
 
 @SpireInitializer
-public class DarklingsModInitializer implements EditCharactersSubscriber{
+public class DarklingsModInitializer implements EditCharactersSubscriber, OnStartBattleSubscriber{
 
     private static final String MODNAME = "Darklings!";
     private static final String AUTHOR = "Reina";
@@ -47,10 +51,18 @@ public class DarklingsModInitializer implements EditCharactersSubscriber{
 
     @Override
     public void receiveEditCharacters() {
-        System.out.println("Hewwo");
         BaseMod.addCharacter(Darklings.class, "The Blob", "BLOB",
                 AbstractCardEnum.DARKLINGS_BLACK, "Darklings",
                 Darklings_Button, Darklings_Portrait,
                 DarklingsEnum.DARKLING);
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        if (AbstractDungeon.player instanceof Darklings) {
+            AbstractPlayerWithMinions player = (AbstractPlayerWithMinions) AbstractDungeon.player;
+            player.addMinion(new DarklingsBuddy(-65));
+            player.addMinion(new DarklingsBuddy(-115));
+        }
     }
 }
