@@ -61,8 +61,8 @@ public class DarklingsModInitializer implements EditCharactersSubscriber, OnStar
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         if (AbstractDungeon.player instanceof Darklings) {
             AbstractPlayerWithMinions player = (AbstractPlayerWithMinions) AbstractDungeon.player;
-            player.addMinion(new DarklingsBuddy(-65));
-            player.addMinion(new DarklingsBuddy(-115));
+            player.addMinion(new DarklingsBuddy(-75, true));
+            player.addMinion(new DarklingsBuddy(-130, false));
         }
     }
 }
