@@ -3,13 +3,16 @@ package DarklingsMod;
 import DarklingsMod.character.Darklings;
 import DarklingsMod.enums.AbstractCardEnum;
 import DarklingsMod.enums.DarklingsEnum;
-import DarklingsMod.monsters.DarklingsBuddy;
+import DarklingsMod.monsters.Anthony;
+import DarklingsMod.monsters.Casey;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.powers.RegrowPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
 
@@ -17,7 +20,7 @@ import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
 @SpireInitializer
 public class DarklingsModInitializer implements EditCharactersSubscriber, OnStartBattleSubscriber{
 
-    private static final String MODNAME = "Darklings!";
+    private static final String MODNAME = "Darklings";
     private static final String AUTHOR = "Reina";
     private static final String DESCRIPTION = "Adds Darklings as a playable character.";
 
@@ -61,8 +64,14 @@ public class DarklingsModInitializer implements EditCharactersSubscriber, OnStar
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         if (AbstractDungeon.player instanceof Darklings) {
             AbstractPlayerWithMinions player = (AbstractPlayerWithMinions) AbstractDungeon.player;
-            player.addMinion(new DarklingsBuddy(-75, true));
-            player.addMinion(new DarklingsBuddy(-130, false));
+            player.addMinion(new Anthony());
+            player.addMinion(new Casey());
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                    new RegrowPower(AbstractDungeon.player)));
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(player.getMinions().monsters.get(0), AbstractDungeon.player,
+                    new RegrowPower(player.getMinions().getMonster(Anthony.ID))));
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(player.getMinions().monsters.get(1), AbstractDungeon.player,
+                    new RegrowPower(player.getMinions().getMonster(Casey.ID))));
         }
     }
 }
