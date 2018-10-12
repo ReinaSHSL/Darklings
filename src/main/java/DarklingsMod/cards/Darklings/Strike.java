@@ -13,32 +13,31 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import com.megacrit.cardcrawl.cards.DamageInfo;
+
+import basemod.helpers.BaseModCardTags;
+
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Template extends AbstractDittoCard {
-    public static final String           ID = "BlueShift";
+public abstract class Strike extends AbstractDittoCard {
+    public static final String           ID = "Strike";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.ATTACK;
     public static final CardTarget   TARGET = CardTarget.ENEMY;
     public static final String  MONSTERPOOL = "Darklings";
 
-    public Template() {
+    public Strike() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
 
-        // this.baseDamage = 0;
-        // this.damageUp = 0;
+        this.baseDamage = 6;
+        this.damageUp = 9;
 
-        // this.baseBlock = 0;
-        // this.blockUp = 0;
-
-        // this.baseMagicNumber = 0;
-        // this.magicNumberUp = 0;
-
-        // this.costUp = 0;
+        this.tags.add(BaseModCardTags.BASIC_STRIKE);
+        this.tags.add(AbstractCard.CardTags.STRIKE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 }
