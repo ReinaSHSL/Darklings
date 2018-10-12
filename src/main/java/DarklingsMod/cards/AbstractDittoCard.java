@@ -49,11 +49,11 @@ public abstract class AbstractDittoCard extends CustomCard {
         this(id, cost, type, target, rarity, "Darklings");
     }
 
-    public void applyAction(AbstractGameAction act) {
+    public void act(AbstractGameAction act) {
         AbstractDungeon.actionManager.addToBottom(act);
     }
 
-    public void applyActionToDarkittyns(AbstractGameAction act) {
+    public void actForDarkittyns(AbstractGameAction act) {
         act.source = AbstractDungeon.player;
 
         for (AbstractMonster m : ((AbstractPlayerWithMinions)AbstractDungeon.player).getMinions().monsters) {
@@ -63,7 +63,7 @@ public abstract class AbstractDittoCard extends CustomCard {
         }
     }
 
-    public void applyActionToDarkittyn(AbstractGameAction act, String Darkittyn) {
+    public void actForDarkittyn(AbstractGameAction act, String Darkittyn) {
         act.source = AbstractDungeon.player;
 
         for (AbstractMonster m : ((AbstractPlayerWithMinions)AbstractDungeon.player).getMinions().monsters) {
@@ -75,14 +75,14 @@ public abstract class AbstractDittoCard extends CustomCard {
         }
     }
 
-    public void applyActionToDarkittyn(AbstractGameAction act) {
+    public void actForDarkittyn(AbstractGameAction act) {
         String[] d = {"Casey", "Anthony"};
         String target = d[new Random().nextInt(d.length)];
 
-        this.applyActionToDarkittyn(act, target);
+        this.actForDarkittyn(act, target);
     }
 
-    public void applyActionToDarklings(AbstractGameAction act) {
+    public void actForDarklings(AbstractGameAction act) {
         act.source = AbstractDungeon.player;
         act.target = AbstractDungeon.player;
         AbstractDungeon.actionManager.addToBottom(act);
