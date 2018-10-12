@@ -166,7 +166,7 @@ public class Anthony extends AbstractFriendlyMonster {
                 this.halfDead = true;
                 boolean allDead = true;
                 for (AbstractMonster m : player.getMinions().monsters) {
-                    if (!m.halfDead || !AbstractDungeon.player.halfDead) {
+                    if (!m.halfDead || !(AbstractDungeon.player.currentHealth == 0)) {
                         allDead = false;
                     }
                 }

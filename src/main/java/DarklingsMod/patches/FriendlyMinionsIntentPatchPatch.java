@@ -46,7 +46,7 @@ public class FriendlyMinionsIntentPatchPatch {
     public static class SetIntentPatch {
         public static void Postfix(AbstractMonster monster, AbstractMonster.Intent intent, byte nextMove, int baseDamage, int multiplier, boolean isMultiDamage) {
               try {
-                  if (AbstractDungeon.player.halfDead) {
+                  if (AbstractDungeon.player.currentHealth == 0) {
                       Field moveInfo = AbstractMonster.class.getDeclaredField("move");
                       moveInfo.setAccessible(true);
                       EnemyMoveInfo newInfo = new EnemyMoveInfo(nextMove, intent, baseDamage, multiplier, isMultiDamage);

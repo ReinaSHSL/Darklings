@@ -40,6 +40,8 @@ import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
 import java.util.ArrayList;
 
 public class Darklings extends AbstractPlayerWithMinions {
+    public static boolean dying;
+    public static boolean halfAlive;
     public CustomCharSelectInfo getInfo() {
         return (CustomCharSelectInfo) getLoadout ();
     }
@@ -85,6 +87,7 @@ public class Darklings extends AbstractPlayerWithMinions {
 
     @Override
     public void damage(final DamageInfo info) {
+        System.out.println("Damage");
         AbstractPlayerWithMinions player = (AbstractPlayerWithMinions) AbstractDungeon.player;
         AbstractMonster owner;
         boolean attackingMonster = false;
@@ -153,10 +156,9 @@ public class Darklings extends AbstractPlayerWithMinions {
                 this.isBloodied = true;
             }
             if (this.currentHealth < 1) {
-                this.halfDead = true;
                 boolean allDead = true;
                 for (AbstractMonster m : player.getMinions().monsters) {
-                    if (!m.halfDead || !AbstractDungeon.player.halfDead) {
+                    if (!m.halfDead || !(AbstractDungeon.player.currentHealth == 0)) {
                         allDead = false;
                     }
                 }
