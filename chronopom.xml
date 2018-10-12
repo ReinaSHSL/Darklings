@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>Darklings</groupId>
+    <artifactId>Darklings</artifactId>
+    <version>0.0.1</version>
+
+    <name>Darklings!</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.megacrit.cardcrawl</groupId>
+            <artifactId>slaythespire</artifactId>
+            <version>014</version>
+            <scope>system</scope>
+            <systemPath>/Users/Chronometrics/Library/Application Support/Steam/steamapps/common/SlayTheSpire/SlayTheSpire.app/Contents/Resources/desktop-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>basemod</groupId>
+            <artifactId>basemod</artifactId>
+            <version>1.5.2</version>
+            <scope>system</scope>
+            <systemPath>/Users/Chronometrics/Library/Application Support/Steam/steamapps/common/SlayTheSpire/SlayTheSpire.app/Contents/Resources/mods/BaseMod.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>modthespire</groupId>
+            <artifactId>modthespire</artifactId>
+            <version>3.2.0</version>
+            <scope>system</scope>
+            <systemPath>/Users/Chronometrics/Library/Application Support/Steam/steamapps/common/SlayTheSpire/SlayTheSpire.app/Contents/Resources/ModTheSpire.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>stsfriendlyminions</groupId>
+            <artifactId>stsfriendlyminions</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>/Users/Chronometrics/Library/Application Support/Steam/steamapps/common/SlayTheSpire/SlayTheSpire.app/Contents/Resources/mods/FriendlyMinions.jar</systemPath>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <build>
+        <finalName>DarklingsMod</finalName>
+        <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-jar-plugin</artifactId>
+              <version>2.3.1</version>
+              <configuration>
+                <outputDirectory>/Users/Chronometrics/Library/Application Support/Steam/steamapps/common/SlayTheSpire/SlayTheSpire.app/Contents/Resources/mods</outputDirectory>
+              </configuration>
+            </plugin>
+
+<!--             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <copy file="target/DarklingsMod.jar" tofile="C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\mods\Darklings.jar" />
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+ -->        </plugins>
+    </build>
+
+    <description>Adds Darklings as a new playable character.</description>
+</project>

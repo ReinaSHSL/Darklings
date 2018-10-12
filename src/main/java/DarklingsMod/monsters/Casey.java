@@ -29,7 +29,7 @@ import java.util.ArrayList;
 
 public class Casey extends AbstractFriendlyMonster {
     public static String NAME = "Casey";
-    public static String ID = "Darkings:Casey";
+    public static String ID = "Darklings:Casey";
     private ArrayList<ChooseActionInfo> moveInfo;
     public boolean green;
     private float offsetY;
