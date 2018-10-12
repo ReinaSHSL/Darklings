@@ -85,7 +85,6 @@ public class Darklings extends AbstractPlayerWithMinions {
 
     @Override
     public void damage(final DamageInfo info) {
-        System.out.println("Got this far");
         AbstractPlayerWithMinions player = (AbstractPlayerWithMinions) AbstractDungeon.player;
         AbstractMonster owner;
         boolean attackingMonster = false;
@@ -180,12 +179,11 @@ public class Darklings extends AbstractPlayerWithMinions {
         }
     }
 
-    private static boolean checkAttackMonsterIntent(AbstractMonster.Intent intent) {
+    public static boolean checkAttackMonsterIntent(AbstractMonster.Intent intent) {
         if(intent == MonsterIntentEnum.ATTACK_MINION
                 || intent == MonsterIntentEnum.ATTACK_MINION_BUFF
                 || intent == MonsterIntentEnum.ATTACK_MINION_DEBUFF
                 || intent == MonsterIntentEnum.ATTACK_MINION_DEFEND) {
-
             return true;
         }
         return false;
