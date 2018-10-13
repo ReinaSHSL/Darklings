@@ -12,29 +12,27 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import basemod.helpers.BaseModCardTags;
+import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
+import DarklingsMod.powers.SlimePower;
 
-public abstract class Defend extends AbstractDittoCard {
-    public static final String           ID = "Defend";
+public abstract class GoopSpray extends AbstractDittoCard {
+    public static final String           ID = "GoopSpray";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.SKILL;
-    public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "Darklings";
+    public static final CardTarget   TARGET = CardTarget.ENEMY;
+    public static final String  MONSTERPOOL = "SlimeBoss";
 
-    public Defend() {
-        super(ID, COST, TYPE, TARGET, AbstractCard.CardRarity.BASIC);
-
-        this.baseBlock = 5;
-        this.blockUp = 3;
-
-        this.tags.add(BaseModCardTags.BASIC_DEFEND);
+    public GoopSpray() {
+        super(ID, COST, TYPE, TARGET, MONSTERPOOL);
+        this.baseMagicNumber = 3;
+        this.magicNumberUp = 2;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new GainBlockAction(p, p, this.block));
+        act(new SFXAction("MONSTER_SLIME_ATTACK"));
+        act(new ApplyPowerAction(m, p, new SlimePower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.POISON));
     }
 }

@@ -12,29 +12,25 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import basemod.helpers.BaseModCardTags;
+import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Defend extends AbstractDittoCard {
-    public static final String           ID = "Defend";
-    public static final int            COST = 1;
-    public static final CardType       TYPE = CardType.SKILL;
-    public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "Darklings";
+public abstract class Lick extends AbstractDittoCard {
+    public static final String           ID = "Lick";
+    public static final int            COST = 0;
+    public static final CardType       TYPE = CardType.ATTACK;
+    public static final CardTarget   TARGET = CardTarget.ENEMY;
+    public static final String  MONSTERPOOL = "SpikeSlime_L";
 
-    public Defend() {
-        super(ID, COST, TYPE, TARGET, AbstractCard.CardRarity.BASIC);
-
-        this.baseBlock = 5;
-        this.blockUp = 3;
-
-        this.tags.add(BaseModCardTags.BASIC_DEFEND);
+    public Lick() {
+        super(ID, COST, TYPE, TARGET, MONSTERPOOL);
+        this.baseMagicNumber = 2;
+        this.magicNumberUp = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new GainBlockAction(p, p, this.block));
+        act(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.POISON));
     }
 }

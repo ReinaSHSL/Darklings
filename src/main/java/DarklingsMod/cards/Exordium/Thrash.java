@@ -12,29 +12,28 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import basemod.helpers.BaseModCardTags;
+import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Defend extends AbstractDittoCard {
-    public static final String           ID = "Defend";
-    public static final int            COST = 1;
-    public static final CardType       TYPE = CardType.SKILL;
-    public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "Darklings";
+public abstract class Thrash extends AbstractDittoCard {
+    public static final String           ID = "Thrash";
+    public static final int            COST = 2;
+    public static final CardType       TYPE = CardType.ATTACK;
+    public static final CardTarget   TARGET = CardTarget.ENEMY;
+    public static final String  MONSTERPOOL = "GremlinFat";
 
-    public Defend() {
-        super(ID, COST, TYPE, TARGET, AbstractCard.CardRarity.BASIC);
-
+    public Thrash() {
+        super(ID, COST, TYPE, TARGET, MONSTERPOOL);
+        this.baseDamage = 7;
         this.baseBlock = 5;
-        this.blockUp = 3;
-
-        this.tags.add(BaseModCardTags.BASIC_DEFEND);
+        this.costUp = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new GainBlockAction(p, p, this.block));
+        act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        actForDarklings(new GainBlockAction(p, this.block));
     }
 }

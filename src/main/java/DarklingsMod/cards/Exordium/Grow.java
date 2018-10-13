@@ -12,29 +12,25 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import basemod.helpers.BaseModCardTags;
+import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Defend extends AbstractDittoCard {
-    public static final String           ID = "Defend";
-    public static final int            COST = 1;
-    public static final CardType       TYPE = CardType.SKILL;
+public abstract class Grow extends AbstractDittoCard {
+    public static final String           ID = "Grow";
+    public static final int            COST = 2;
+    public static final CardType       TYPE = CardType.POWER;
     public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "Darklings";
+    public static final String  MONSTERPOOL = "FungiBeast";
 
-    public Defend() {
-        super(ID, COST, TYPE, TARGET, AbstractCard.CardRarity.BASIC);
-
-        this.baseBlock = 5;
-        this.blockUp = 3;
-
-        this.tags.add(BaseModCardTags.BASIC_DEFEND);
+    public Grow() {
+        super(ID, COST, TYPE, TARGET, MONSTERPOOL);
+        this.baseMagicNumber = 3;
+        this.magicNumberUp = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new GainBlockAction(p, p, this.block));
+        act(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
     }
 }

@@ -12,29 +12,26 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import basemod.helpers.BaseModCardTags;
+import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Defend extends AbstractDittoCard {
-    public static final String           ID = "Defend";
+public abstract class ShellShock extends AbstractDittoCard {
+    public static final String           ID = "ShellShock";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.SKILL;
-    public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "Darklings";
+    public static final CardTarget   TARGET = CardTarget.ENEMY;
+    public static final String  MONSTERPOOL = "Lagavulin";
 
-    public Defend() {
-        super(ID, COST, TYPE, TARGET, AbstractCard.CardRarity.BASIC);
-
-        this.baseBlock = 5;
-        this.blockUp = 3;
-
-        this.tags.add(BaseModCardTags.BASIC_DEFEND);
+    public ShellShock() {
+        super(ID, COST, TYPE, TARGET, MONSTERPOOL);
+        this.baseMagicNumber = 1;
+        this.magicNumberUp = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new GainBlockAction(p, p, this.block));
+        act(new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber));
+        act(new ApplyPowerAction(m, p, new DexterityPower(m, -this.magicNumber), -this.magicNumber));
     }
 }

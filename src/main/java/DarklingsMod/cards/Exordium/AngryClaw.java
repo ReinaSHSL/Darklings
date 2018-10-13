@@ -12,29 +12,26 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import basemod.helpers.BaseModCardTags;
+import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Defend extends AbstractDittoCard {
-    public static final String           ID = "Defend";
+public abstract class AngryClaw extends AbstractDittoCard {
+    public static final String           ID = "AngryClaw";
     public static final int            COST = 1;
-    public static final CardType       TYPE = CardType.SKILL;
+    public static final CardType       TYPE = CardType.POWER;
     public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "Darklings";
+    public static final String  MONSTERPOOL = "GremlinWarrior";
 
-    public Defend() {
-        super(ID, COST, TYPE, TARGET, AbstractCard.CardRarity.BASIC);
-
-        this.baseBlock = 5;
-        this.blockUp = 3;
-
-        this.tags.add(BaseModCardTags.BASIC_DEFEND);
+    public AngryClaw() {
+        super(ID, COST, TYPE, TARGET, MONSTERPOOL);
+        this.baseMagicNumber = 1;
+        this.magicNumberUp = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new GainBlockAction(p, p, this.block));
+        actForDarkittyns(new ApplyPowerAction(p, p, new AngryPower(p, this.magicNumber), this.magicNumber));
     }
 }

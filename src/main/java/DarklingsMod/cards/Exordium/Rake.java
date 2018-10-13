@@ -12,29 +12,28 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import basemod.helpers.BaseModCardTags;
+import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Defend extends AbstractDittoCard {
-    public static final String           ID = "Defend";
+public abstract class Rake extends AbstractDittoCard {
+    public static final String           ID = "Rake";
     public static final int            COST = 1;
-    public static final CardType       TYPE = CardType.SKILL;
-    public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "Darklings";
+    public static final CardType       TYPE = CardType.ATTACK;
+    public static final CardTarget   TARGET = CardTarget.ALL_ENEMY;
+    public static final String  MONSTERPOOL = "SlaverBlue";
 
-    public Defend() {
-        super(ID, COST, TYPE, TARGET, AbstractCard.CardRarity.BASIC);
-
-        this.baseBlock = 5;
-        this.blockUp = 3;
-
-        this.tags.add(BaseModCardTags.BASIC_DEFEND);
+    public Rake() {
+        super(ID, COST, TYPE, TARGET, MONSTERPOOL);
+        this.baseDamage = 7;
+        this.damageUp = 3;
+        this.isMultiDamage = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new GainBlockAction(p, p, this.block));
+        act(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        act(new EndTurnAction());
     }
 }

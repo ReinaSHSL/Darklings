@@ -12,29 +12,26 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import basemod.helpers.BaseModCardTags;
+import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Defend extends AbstractDittoCard {
-    public static final String           ID = "Defend";
+public abstract class EscapeDefense extends AbstractDittoCard {
+    public static final String           ID = "EscapeDefense";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.SKILL;
     public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "Darklings";
+    public static final String  MONSTERPOOL = "Looter";
 
-    public Defend() {
-        super(ID, COST, TYPE, TARGET, AbstractCard.CardRarity.BASIC);
-
-        this.baseBlock = 5;
-        this.blockUp = 3;
-
-        this.tags.add(BaseModCardTags.BASIC_DEFEND);
+    public EscapeDefense() {
+        super(ID, COST, TYPE, TARGET, MONSTERPOOL);
+        this.baseBlock = 6;
+        this.blockUp = 5;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new GainBlockAction(p, p, this.block));
+        actForDarklings(new GainBlockAction(p, this.block));
     }
 }
