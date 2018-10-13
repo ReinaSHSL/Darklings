@@ -1,0 +1,10 @@
+{
+  "Darklings:ReincarnationPower": {
+    "NAME": "Reincarnation",
+    "DESCRIPTIONS": [
+      "Regains half health in #b",
+      " turns.",
+      "Regains half health this turn."
+    ]
+  }
+}

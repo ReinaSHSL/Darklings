@@ -1,6 +1,7 @@
 package DarklingsMod.character;
 
 import DarklingsMod.enums.DarklingsEnum;
+import DarklingsMod.powers.ReincarnationPower;
 import basemod.BaseMod;
 import basemod.interfaces.OnStartBattleSubscriber;
 import com.badlogic.gdx.graphics.Color;
@@ -170,6 +171,9 @@ public class Darklings extends AbstractPlayerWithMinions {
                         this.loseBlock();
                         AbstractDungeon.effectList.add(new HbBlockBrokenEffect(this.hb.cX - this.hb.width / 2.0f + AbstractPlayer.BLOCK_ICON_X, this.hb.cY - this.hb.height / 2.0f + AbstractPlayer.BLOCK_ICON_Y));
                     }
+                } else {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction
+                            (this, this, new ReincarnationPower(this, 3)));
                 }
             }
         }

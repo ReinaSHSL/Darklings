@@ -7,18 +7,22 @@ import DarklingsMod.monsters.Anthony;
 import DarklingsMod.monsters.Casey;
 import basemod.BaseMod;
 import basemod.interfaces.*;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.RegrowPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
 
+import java.nio.charset.StandardCharsets;
+
 
 @SpireInitializer
-public class DarklingsModInitializer implements EditCharactersSubscriber, OnStartBattleSubscriber{
+public class DarklingsModInitializer implements EditCharactersSubscriber, OnStartBattleSubscriber, EditStringsSubscriber{
 
     private static final String MODNAME = "Darklings";
     private static final String AUTHOR = "Reina";
@@ -73,5 +77,12 @@ public class DarklingsModInitializer implements EditCharactersSubscriber, OnStar
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(player.getMinions().monsters.get(1), AbstractDungeon.player,
                     new RegrowPower(player.getMinions().getMonster(Casey.ID))));
         }
+    }
+
+    @Override
+    public void receiveEditStrings() {
+        String powerStrings = Gdx.files.internal("localization/DarklingsPowerStrings.json").readString(
+                String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
     }
 }

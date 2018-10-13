@@ -1,5 +1,6 @@
 package DarklingsMod.monsters;
 
+import DarklingsMod.powers.ReincarnationPower;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -165,6 +166,9 @@ public class Casey extends AbstractFriendlyMonster {
                         this.loseBlock();
                         AbstractDungeon.effectList.add(new HbBlockBrokenEffect(this.hb.cX - this.hb.width / 2.0f + AbstractPlayer.BLOCK_ICON_X, this.hb.cY - this.hb.height / 2.0f + AbstractPlayer.BLOCK_ICON_Y));
                     }
+                } else {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction
+                            (this, this, new ReincarnationPower(this, 3)));
                 }
             }
         }
