@@ -1,6 +1,8 @@
 package DarklingsMod.character;
 
 import DarklingsMod.enums.DarklingsEnum;
+import DarklingsMod.monsters.Anthony;
+import DarklingsMod.monsters.Casey;
 import DarklingsMod.powers.ReincarnationPower;
 import basemod.BaseMod;
 import basemod.interfaces.OnStartBattleSubscriber;
@@ -41,8 +43,8 @@ import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
 import java.util.ArrayList;
 
 public class Darklings extends AbstractPlayerWithMinions {
-    public static boolean dying;
-    public static boolean halfAlive;
+    public static AbstractFriendlyMonster Casey = new Casey();
+    public static AbstractFriendlyMonster Anthony = new Anthony();
     public CustomCharSelectInfo getInfo() {
         return (CustomCharSelectInfo) getLoadout ();
     }
@@ -55,6 +57,7 @@ public class Darklings extends AbstractPlayerWithMinions {
         this.loadAnimation("DarklingsImgs/charassets/skeleton.atlas", "DarklingsImgs/charassets/skeleton.json", 1.0f);
         final AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
         e.setTime(e.getEndTime() * MathUtils.random());
+
     }
 
 
