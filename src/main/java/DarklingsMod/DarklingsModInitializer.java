@@ -30,7 +30,7 @@ public class DarklingsModInitializer implements EditCharactersSubscriber, OnStar
 
     private static final float BUTTON_ENABLE_X = 350.0f;
     private static final float BUTTON_ENABLE_Y = 750.0f;
-    private static final Color BLACK = CardHelper.getColor(131.0f, 156.0f, 165.0f);
+    private static final Color BLACK = CardHelper.getColor(255.0f, 255.0f, 255.0f);
     private static final String ATTACK_BLACK = "DarklingsImgs/cardBG/bg_attack_black.png";
     private static final String SKILL_BLACK = "DarklingsImgs/cardBG/bg_skill_black.png";
     private static final String POWER_BLACK = "DarklingsImgs/cardBG/bg_power_black.png";
@@ -58,9 +58,11 @@ public class DarklingsModInitializer implements EditCharactersSubscriber, OnStar
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(Darklings.class, "The Blob", "BLOB",
-                AbstractCardEnum.DARKLINGS_BLACK, "Darklings",
-                Darklings_Button, Darklings_Portrait,
+        BaseMod.addCharacter(
+                new Darklings("the Blobs"),
+                AbstractCardEnum.DARKLINGS_BLACK,
+                Darklings_Button,
+                Darklings_Portrait,
                 DarklingsEnum.DARKLING);
     }
 

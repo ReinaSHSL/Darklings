@@ -1,4 +1,4 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Darklings;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -19,7 +19,7 @@ import basemod.helpers.BaseModCardTags;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Strike extends AbstractDittoCard {
+public class Strike extends AbstractDittoCard {
     public static final String           ID = "Strike";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.ATTACK;

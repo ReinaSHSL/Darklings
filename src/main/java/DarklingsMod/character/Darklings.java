@@ -1,5 +1,6 @@
 package DarklingsMod.character;
 
+import DarklingsMod.cards.Darklings.Strike;
 import DarklingsMod.enums.DarklingsEnum;
 import DarklingsMod.monsters.Anthony;
 import DarklingsMod.monsters.Casey;
@@ -7,6 +8,7 @@ import DarklingsMod.powers.ReincarnationPower;
 import basemod.BaseMod;
 import basemod.interfaces.OnStartBattleSubscriber;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.esotericsoftware.spine.AnimationState;
@@ -14,10 +16,15 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.FairyPotion;
@@ -49,8 +56,8 @@ public class Darklings extends AbstractPlayerWithMinions {
         return (CustomCharSelectInfo) getLoadout ();
     }
 
-    public Darklings (String name, PlayerClass setClass) {
-        super(name, setClass, null, null, (String)null, null);
+    public Darklings (String name) {
+        super(name, null, null, (String)null, null);
         initializeClass(null, "DarklingsImgs/charassets/shoulder2.png",
                 "DarklingsImgs/charassets/shoulder.png", "DarklingsImgs/charassets/corpse.png",
                 getLoadout(), 20.0f, -10.0f, 220.0f, 290.0f, new EnergyManager(3));
@@ -61,17 +68,17 @@ public class Darklings extends AbstractPlayerWithMinions {
     }
 
 
-    public static ArrayList<String> getStartingDeck() {
+    public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         return retVal;
     }
 
-    public static ArrayList<String> getStartingRelics() {
+    public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         return retVal;
     }
 
-    public static CharSelectInfo getLoadout() {
+    public CharSelectInfo getLoadout() {
 
         CharSelectInfo info = new CustomCharSelectInfo (
                 "Darklings",
@@ -82,11 +89,63 @@ public class Darklings extends AbstractPlayerWithMinions {
                 2,  //maxMinions
                 99, //gold
                 5,  //cardDraw
-                DarklingsEnum.DARKLING,
+                this,
                 getStartingRelics(),
                 getStartingDeck(),
                 false);
         return info;
+    }
+
+    @Override
+    public String getTitle(PlayerClass playerClass) {
+        return "the Blobs";
+    }
+
+    @Override
+    public Color getCardColor() {
+        return Color.BLACK;
+    }
+
+    @Override
+    public AbstractCard getStartCardForEvent() {
+        return new Strike();
+    }
+
+    @Override
+    public Color getCardTrailColor() {
+        return Color.BLACK;
+    }
+
+    @Override
+    public int getAscensionMaxHPLoss() {
+        return 3;
+    }
+
+    @Override
+    public BitmapFont getEnergyNumFont() {
+        return FontHelper.energyNumFontRed;
+    }
+
+    @Override
+    public void doCharSelectScreenSelectEffect() {
+        CardCrawlGame.sound.playA("ATTACK_FIRE", MathUtils.random(-0.2f, 0.2f));
+        CardCrawlGame.sound.playA("ATTACK_FAST", MathUtils.random(-0.2f, 0.2f));
+        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
+    }
+
+    @Override
+    public String getCustomModeCharacterButtonSoundKey() {
+        return "ATTACK_FIRE";
+    }
+
+    @Override
+    public String getLocalizedCharacterName() {
+        return "the Blobs";
+    }
+
+    @Override
+    public AbstractPlayer newInstance() {
+        return new Darklings(this.name);
     }
 
     @Override
