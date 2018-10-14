@@ -1,5 +1,7 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Exordium;
 
+import DarklingsMod.powers.DazePower;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
@@ -39,7 +41,7 @@ public abstract class BeamWave extends AbstractDittoCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         act(new SFXAction("THUNDERCLAP"));
-        act(new VFXAction(this, new ShockWaveEffect(this.hb.cX, this.hb.cY, Color.ROYAL, ShockWaveEffect.ShockWaveType.ADDITIVE), 0.5F));
+        act(new VFXAction(p, new ShockWaveEffect(this.hb.cX, this.hb.cY, Color.ROYAL, ShockWaveEffect.ShockWaveType.ADDITIVE), 0.5F));
         act(new FastShakeAction(AbstractDungeon.player, 0.6F, 0.2F));
         act(new ApplyPowerAction(m, p, new DazePower(m, this.magicNumber), this.magicNumber));
     }

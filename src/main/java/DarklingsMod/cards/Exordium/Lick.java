@@ -1,4 +1,4 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Exordium;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -31,6 +31,6 @@ public abstract class Lick extends AbstractDittoCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.POISON));
+        act(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.POISON));
     }
 }

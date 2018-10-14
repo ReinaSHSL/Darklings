@@ -1,4 +1,4 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Exordium;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -35,9 +35,9 @@ public abstract class Smash extends AbstractDittoCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        act(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber), this.magicNumber));
+        act(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
         if (this.upgraded) {
-            act(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber), this.magicNumber));
+            act(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
         }
     }
 }

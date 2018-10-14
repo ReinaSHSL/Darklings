@@ -59,7 +59,7 @@ public class DarklingsModInitializer implements EditCharactersSubscriber, OnStar
     @Override
     public void receiveEditCharacters() {
         BaseMod.addCharacter(
-                new Darklings("the Blobs"),
+                new Darklings("the Blobs", DarklingsEnum.DARKLING),
                 AbstractCardEnum.DARKLINGS_BLACK,
                 Darklings_Button,
                 Darklings_Portrait,

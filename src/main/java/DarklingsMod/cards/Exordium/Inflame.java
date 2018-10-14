@@ -1,4 +1,4 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Exordium;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -37,8 +37,8 @@ public abstract class Inflame extends AbstractDittoCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new VFXAction(this, new InflameEffect(this), 0.5F));
+        act(new VFXAction(p, new InflameEffect(p), 0.5F));
         act(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
-        act(new GainBlockAction(p, this.block));
+        act(new GainBlockAction(p, p, this.block));
     }
 }

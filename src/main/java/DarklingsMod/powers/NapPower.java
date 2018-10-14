@@ -2,6 +2,7 @@ package DarklingsMod.powers;
 
 import DarklingsMod.tools.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -49,7 +50,7 @@ public class NapPower extends AbstractPower {
   
     public void atEndOfRound() {
         if (NoCardsPlayed) { 
-            AbstractDungeon.actionManager.addToTop(new GainBlockAction(this.owner, this.amount));
+            AbstractDungeon.actionManager.addToTop(new GainBlockAction(this.owner, this.owner, this.amount));
             flash();
         }
     }

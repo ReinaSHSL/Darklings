@@ -1,4 +1,4 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Exordium;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -35,6 +35,6 @@ public abstract class AcidLick extends AbstractDittoCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        act(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.POISON));
+        act(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.POISON));
     }
 }

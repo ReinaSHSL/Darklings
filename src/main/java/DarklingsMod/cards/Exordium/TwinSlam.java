@@ -1,4 +1,4 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Exordium;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.monsters.*;
+import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
 
 public abstract class TwinSlam extends AbstractDittoCard {
     public static final String           ID = "TwinSlam";
@@ -38,13 +39,14 @@ public abstract class TwinSlam extends AbstractDittoCard {
             act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));        
         }
         if (this.upgraded) {
-            if (p.hasPower("Thorns")) {
-                act(new ApplyPowerAction(p, p, new StrengthPower(p, p.getPower("Thorns").amount), p.getPower("Thorns").amount));
+            AbstractPlayerWithMinions player = (AbstractPlayerWithMinions) AbstractDungeon.player;
+            if (p.hasPower(ThornsPower.POWER_ID)) {
+                act(new ApplyPowerAction(p, p, new StrengthPower(p, p.getPower(ThornsPower.POWER_ID).amount), p.getPower("Thorns").amount));
             }
-            if (p.getMinions().getMonster(Casey.ID).hasPower("Thorns")) {
+            if (player.getMinions().getMonster(Casey.ID).hasPower(ThornsPower.POWER_ID)) {
                 actForDarkittyn(new ApplyPowerAction(p, p, new StrengthPower(p, p.getPower("Thorns").amount), p.getPower("Thorns").amount), "Casey");
             }
-            if (p.getMinions().getMonster(Anthony.ID).hasPower("Thorns")) {
+            if (player.getMinions().getMonster(Anthony.ID).hasPower(ThornsPower.POWER_ID)) {
                 actForDarkittyn(new ApplyPowerAction(p, p, new StrengthPower(p, p.getPower("Thorns").amount), p.getPower("Thorns").amount), "Anthony");
             }
         }

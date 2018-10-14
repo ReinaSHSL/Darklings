@@ -1,4 +1,4 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Exordium;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -32,6 +32,6 @@ public abstract class EscapeDefense extends AbstractDittoCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        actForDarklings(new GainBlockAction(p, this.block));
+        actForDarklings(new GainBlockAction(p, p, this.block));
     }
 }

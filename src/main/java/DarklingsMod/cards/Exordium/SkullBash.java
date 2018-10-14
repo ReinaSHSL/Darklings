@@ -1,5 +1,8 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Exordium;
 
+import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.cards.red.HeavyBlade;
+import com.megacrit.cardcrawl.cards.red.PerfectedStrike;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
@@ -16,6 +19,8 @@ import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
+
+import java.util.ArrayList;
 
 public abstract class SkullBash extends AbstractDittoCard {
     public static final String           ID = "SkullBash";
@@ -36,23 +41,11 @@ public abstract class SkullBash extends AbstractDittoCard {
     // Yes, I copy-pasta'd the entire function here just to add a single bit of math.
     public void calculateCardDamage(AbstractMonster mo)
     {
-        applyPowersToBlock();
         AbstractPlayer player = AbstractDungeon.player;
         this.isDamageModified = false;
         if ((!this.isMultiDamage) && (mo != null))
         {
             float tmp = this.baseDamage;
-            if ((this instanceof PerfectedStrike))
-            {
-                if (this.upgraded) {
-                    tmp += 3 * PerfectedStrike.countCards();
-                } else {
-                    tmp += 2 * PerfectedStrike.countCards();
-                }
-                if (this.baseDamage != (int)tmp) {
-                    this.isDamageModified = true;
-                }
-            }
             if ((AbstractDungeon.player.hasRelic("WristBlade")) && ((this.costForTurn == 0) || (this.freeToPlayOnce)))
             {
                 tmp += 3.0F;
@@ -60,26 +53,9 @@ public abstract class SkullBash extends AbstractDittoCard {
                     this.isDamageModified = true;
                 }
             }
-            for (AbstractPower p : player.powers)
-            {
-                if (((this instanceof HeavyBlade)) && ((p instanceof StrengthPower)))
-                {
-                    if (this.upgraded)
-                    {
-                        tmp = p.atDamageGive(tmp, this.damageTypeForTurn);
-                        tmp = p.atDamageGive(tmp, this.damageTypeForTurn);
-                    }
-                    tmp = p.atDamageGive(tmp, this.damageTypeForTurn);
-                    tmp = p.atDamageGive(tmp, this.damageTypeForTurn);
-                }
-                tmp = p.atDamageGive(tmp, this.damageTypeForTurn);
-                if (this.baseDamage != (int)tmp) {
-                    this.isDamageModified = true;
-                }
-            }
             if (mo != null) {
                 for (AbstractPower p : mo.powers) {
-                    if (p.id = "Vulnerable") {
+                    if (p.ID == VulnerablePower.POWER_ID) {
                         tmp = tmp * ((this.magicNumber / 100.0F) + 1.5F);
                     } else {
                             tmp = p.atDamageReceive(tmp, this.damageTypeForTurn);
@@ -134,7 +110,7 @@ public abstract class SkullBash extends AbstractDittoCard {
             for (int i = 0; i < tmp.length; i++) {
                 for (AbstractPower p : ((AbstractMonster)m.get(i)).powers) {
                     if ((!((AbstractMonster)m.get(i)).isDying) && (!((AbstractMonster)m.get(i)).isEscaping)) {
-                        if (p.id = "Vulnerable") {
+                        if (p.ID == VulnerablePower.POWER_ID) {
                             tmp[i] = tmp[i] * ((this.magicNumber / 100.0F) + 1.5F);
                         } else {
                             tmp[i] = p.atDamageReceive(tmp[i], this.damageTypeForTurn);

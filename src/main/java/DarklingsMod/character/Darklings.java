@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -34,6 +35,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.LizardTail;
 import com.megacrit.cardcrawl.relics.MarkOfTheBloom;
+import com.megacrit.cardcrawl.relics.Shuriken;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.screens.DeathScreen;
@@ -56,8 +58,8 @@ public class Darklings extends AbstractPlayerWithMinions {
         return (CustomCharSelectInfo) getLoadout ();
     }
 
-    public Darklings (String name) {
-        super(name, null, null, (String)null, null);
+    public Darklings (String name, PlayerClass setClass) {
+        super(name, setClass,null, null, (String)null, null);
         initializeClass(null, "DarklingsImgs/charassets/shoulder2.png",
                 "DarklingsImgs/charassets/shoulder.png", "DarklingsImgs/charassets/corpse.png",
                 getLoadout(), 20.0f, -10.0f, 220.0f, 290.0f, new EnergyManager(3));
@@ -70,11 +72,14 @@ public class Darklings extends AbstractPlayerWithMinions {
 
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
+        retVal.add(Strike_Red.ID);
+        retVal.add(Strike_Red.ID);
         return retVal;
     }
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
+        retVal.add(Shuriken.ID);
         return retVal;
     }
 
@@ -145,7 +150,7 @@ public class Darklings extends AbstractPlayerWithMinions {
 
     @Override
     public AbstractPlayer newInstance() {
-        return new Darklings(this.name);
+        return new Darklings(this.name, DarklingsEnum.DARKLING);
     }
 
     @Override

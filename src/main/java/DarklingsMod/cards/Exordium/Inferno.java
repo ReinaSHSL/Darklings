@@ -1,4 +1,4 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Exordium;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -38,7 +38,7 @@ public abstract class Inferno extends AbstractDittoCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new VFXAction(this, new ScreenOnFireEffect(), 1.0F));
+        act(new VFXAction(p, new ScreenOnFireEffect(), 1.0F));
         for (int i=0;i<6;i++) {
             act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));        
         }

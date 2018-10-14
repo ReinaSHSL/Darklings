@@ -1,4 +1,4 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Exordium;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -34,7 +34,7 @@ public abstract class Bellow extends AbstractDittoCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         act(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
-        actForDarkittyns(new GainBlockAction(p, this.block));
+        actForDarkittyns(new GainBlockAction(p, p, this.block));
         if (this.upgraded) {
             actForDarkittyns(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
         }

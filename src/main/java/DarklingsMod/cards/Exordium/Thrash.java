@@ -1,4 +1,4 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Exordium;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -34,6 +34,6 @@ public abstract class Thrash extends AbstractDittoCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        actForDarklings(new GainBlockAction(p, this.block));
+        actForDarklings(new GainBlockAction(p, p, this.block));
     }
 }

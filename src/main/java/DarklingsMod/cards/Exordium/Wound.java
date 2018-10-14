@@ -1,5 +1,6 @@
-package DarklingsMod.cards;
+package DarklingsMod.cards.Exordium;
 
+import DarklingsMod.powers.SlimePower;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
