@@ -1,4 +1,4 @@
-package DarklingsMod.cards.Exordium;
+package DarklingsMod.cards;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.red.HeavyBlade;

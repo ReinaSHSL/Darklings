@@ -1,6 +1,6 @@
 package DarklingsMod.character;
 
-import DarklingsMod.cards.Darklings.Strike;
+import DarklingsMod.cards.Strike;
 import DarklingsMod.enums.DarklingsEnum;
 import DarklingsMod.monsters.Anthony;
 import DarklingsMod.monsters.Casey;

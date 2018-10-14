@@ -1,4 +1,4 @@
-package DarklingsMod.cards.Exordium;
+package DarklingsMod.cards;
 
 import DarklingsMod.powers.DazePower;
 import com.badlogic.gdx.graphics.Color;

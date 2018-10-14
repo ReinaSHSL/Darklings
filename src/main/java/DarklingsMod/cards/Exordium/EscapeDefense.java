@@ -1,4 +1,4 @@
-package DarklingsMod.cards.Exordium;
+package DarklingsMod.cards;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

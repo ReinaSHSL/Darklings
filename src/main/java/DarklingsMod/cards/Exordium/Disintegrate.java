@@ -1,4 +1,4 @@
-package DarklingsMod.cards.Exordium;
+package DarklingsMod.cards;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
