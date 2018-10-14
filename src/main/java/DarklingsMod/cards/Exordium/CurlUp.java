@@ -1,4 +1,4 @@
-package DarklingsMod.cards.Darklings;
+package DarklingsMod.cards;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -12,29 +12,30 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import basemod.helpers.BaseModCardTags;
+import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public class Defend extends AbstractDittoCard {
-    public static final String           ID = "Defend";
+public abstract class CurlUp extends AbstractDittoCard {
+    public static final String           ID = "CurlUp";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.SKILL;
     public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "Darklings";
+    public static final String  MONSTERPOOL = "FuzzyLouseDefensive";
 
-    public Defend() {
-        super(ID, COST, TYPE, TARGET, AbstractCard.CardRarity.BASIC);
-
-        this.baseBlock = 5;
-        this.blockUp = 3;
-
-        this.tags.add(BaseModCardTags.BASIC_DEFEND);
+    public CurlUp() {
+        super(ID, COST, TYPE, TARGET, MONSTERPOOL);
+        this.baseBlock = 4;
+        this.blockUp = 5;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new GainBlockAction(p, p, this.block));
+        int random = AbstractDungeon.monsterHpRng.random(this.block, this.block+4);
+        actForDarkittyn(new ApplyPowerAction(p, p, new CurlUpPower(p, random), random), "Casey");
+        random = AbstractDungeon.monsterHpRng.random(this.block, this.block+4);
+        actForDarkittyn(new ApplyPowerAction(p, p, new CurlUpPower(p, random), random), "Anthony");
+        random = AbstractDungeon.monsterHpRng.random(this.block, this.block+4);
+        act(new ApplyPowerAction(p, p, new CurlUpPower(p, random), random));
     }
 }

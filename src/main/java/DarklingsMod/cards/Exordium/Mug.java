@@ -12,33 +12,32 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
+import DarklingsMod.actions.GainGoldAction;
 
-public abstract class Template extends AbstractDittoCard {
-    public static final String           ID = "Template";
-    public static final int            COST = 1;
+public abstract class Mug extends AbstractDittoCard {
+    public static final String           ID = "Mug";
+    public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;
     public static final CardTarget   TARGET = CardTarget.ENEMY;
-    public static final String  MONSTERPOOL = "Darklings";
+    public static final String  MONSTERPOOL = "Looter";
 
-    public Template() {
+    public Mug() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
+        this.baseDamage = 10;
+        this.damageUp = 2;
 
-        // this.baseDamage = 0;
-        // this.damageUp = 0;
-
-        // this.baseBlock = 0;
-        // this.blockUp = 0;
-
-        // this.baseMagicNumber = 0;
-        // this.magicNumberUp = 0;
-
-        // this.costUp = 0;
+        this.baseMagicNumber = 15;
+        this.magicNumberUp = 5;
+        this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        act(new GainGoldAction(p, this.magicNumber));
     }
 }

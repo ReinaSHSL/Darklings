@@ -12,33 +12,25 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Template extends AbstractDittoCard {
-    public static final String           ID = "Template";
-    public static final int            COST = 1;
-    public static final CardType       TYPE = CardType.ATTACK;
-    public static final CardTarget   TARGET = CardTarget.ENEMY;
-    public static final String  MONSTERPOOL = "Darklings";
+public abstract class GreatBellow extends AbstractDittoCard {
+    public static final String           ID = "GreatBellow";
+    public static final int            COST = 2;
+    public static final CardType       TYPE = CardType.POWER;
+    public static final CardTarget   TARGET = CardTarget.SELF;
+    public static final String  MONSTERPOOL = "GremlinNob";
 
-    public Template() {
+    public GreatBellow() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
-
-        // this.baseDamage = 0;
-        // this.damageUp = 0;
-
-        // this.baseBlock = 0;
-        // this.blockUp = 0;
-
-        // this.baseMagicNumber = 0;
-        // this.magicNumberUp = 0;
-
-        // this.costUp = 0;
+        this.baseMagicNumber = 2;
+        this.magicNumberUp = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        actForDarklings(new ApplyPowerAction(p, p, new AngerPower(p, this.magicNumber), this.magicNumber));
     }
 }

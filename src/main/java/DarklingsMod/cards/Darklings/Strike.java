@@ -27,10 +27,10 @@ public class Strike extends AbstractDittoCard {
     public static final String  MONSTERPOOL = "Darklings";
 
     public Strike() {
-        super(ID, COST, TYPE, TARGET, MONSTERPOOL);
+        super(ID, COST, TYPE, TARGET, AbstractCard.CardRarity.BASIC);
 
         this.baseDamage = 6;
-        this.damageUp = 9;
+        this.damageUp = 3;
 
         this.tags.add(BaseModCardTags.BASIC_STRIKE);
         this.tags.add(AbstractCard.CardTags.STRIKE);
