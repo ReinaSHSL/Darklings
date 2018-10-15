@@ -1,12 +1,13 @@
 package DarklingsMod.patches;
 
 
+import DarklingsMod.character.Darklings;
+import DarklingsMod.monsters.Anthony;
+import DarklingsMod.monsters.Casey;
 import DarklingsMod.tools.TextureLoader;
 import basemod.ReflectionHacks;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
@@ -54,54 +55,67 @@ public class FriendlyMinionsIntentPatchPatch {
                     else {
                         tmp = intentDmg.getInt(__instance);
                     }
+                    System.out.println("targetid " + target.id);
                     switch (target.id) {
-                        case "Darklings:Anthony":
+                        case Anthony.ID:
                             if (tmp < 5) {
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_1.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_1.png"));
+                                break;
                             } else if (tmp < 10) {
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_2.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_2.png"));
+                                break;
                             } else if (tmp < 15) {
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_3.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_3.png"));
+                                break;
                             } else if (tmp < 20) {
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_4.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_4.png"));
+                                break;
                             } else if (tmp < 25) {
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_5.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_5.png"));
+                                break;
                             } else if (tmp < 30){
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_6.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_6.png"));
+                                break;
                             } else {
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_7.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/anthony/attack_intent_7.png"));
+                                break;
                             }
-                        case "Darklings:Casey":
+                        case Casey.ID:
                             if (tmp < 5) {
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_1.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_1.png"));
+                                break;
                             } else if (tmp < 10) {
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_2.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_2.png"));
+                                break;
                             } else if (tmp < 15) {
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_3.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_3.png"));
+                                break;
                             } else if (tmp < 20) {
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_4.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_4.png"));
+                                break;
                             } else if (tmp < 25) {
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_5.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_5.png"));
+                                break;
                             } else if (tmp < 30){
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_6.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_6.png"));
+                                break;
                             } else {
                                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_7.png"));
-                            }
-                        default:
-                            if (tmp < 5) {
-                                ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/kio/attack_intent_1.png"));
-                            } else if (tmp < 10) {
-                                ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/kio/attack_intent_2.png"));
-                            } else if (tmp < 15) {
-                                ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/kio/attack_intent_3.png"));
-                            } else if (tmp < 20) {
-                                ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/kio/attack_intent_4.png"));
-                            } else if (tmp < 25) {
-                                ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/kio/attack_intent_5.png"));
-                            } else if (tmp < 30){
-                                ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/kio/attack_intent_6.png"));
-                            } else {
-                                ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentImg", TextureLoader.getTexture("DarklingsImgs/intents/kio/attack_intent_7.png"));
+                                IntentImgField.intentImage.set(__instance, TextureLoader.getTexture("DarklingsImgs/intents/casey/attack_intent_7.png"));
+                                break;
                             }
                     }
                 } catch (IllegalAccessException | NoSuchFieldException e) {
@@ -112,6 +126,8 @@ public class FriendlyMinionsIntentPatchPatch {
             return SpireReturn.Return(null);
         }
     }
+
+
 
     @SpirePatch(clz = MonsterSetMovePatch.class, method= "maybeChangeIntent")
     public static class SetIntentPatch {
@@ -126,6 +142,18 @@ public class FriendlyMinionsIntentPatchPatch {
               } catch (NoSuchFieldException | IllegalAccessException e) {
                   e.printStackTrace();
               }
+        }
+    }
+
+    @SpirePatch(clz = MonsterIntentPatch.GetIntentImagePatch.class, method = "getAttackIntent")
+    public static class IntentImagePatch {
+        @SpireInsertPatch(rloc = 14)
+        public static SpireReturn<Texture> Insert (AbstractMonster __instance) {
+            if (AbstractDungeon.player instanceof Darklings) {
+                return SpireReturn.Return(IntentImgField.intentImage.get(__instance));
+            } else {
+                return SpireReturn.Continue();
+            }
         }
     }
 }

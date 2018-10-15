@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class Casey extends AbstractFriendlyMonster {
     public static String NAME = "Casey";
-    public static String ID = "Darklings:Casey";
+    public static final String ID = "Darklings:Casey";
     public boolean green;
     private float offsetY;
     private boolean hasAttacked = false;

@@ -40,7 +40,7 @@ import java.util.ArrayList;
 
 public class Anthony extends AbstractFriendlyMonster {
     public static String NAME = "Anthony";
-    public static String ID = "Darklings:Anthony";
+    public static final String ID = "Darklings:Anthony";
     public boolean green;
     private float offsetY;
     private boolean hasAttacked = false;
