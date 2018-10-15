@@ -55,7 +55,6 @@ public class FriendlyMinionsIntentPatchPatch {
                     else {
                         tmp = intentDmg.getInt(__instance);
                     }
-                    System.out.println("targetid " + target.id);
                     switch (target.id) {
                         case Anthony.ID:
                             if (tmp < 5) {

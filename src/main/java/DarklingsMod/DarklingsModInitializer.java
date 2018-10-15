@@ -74,9 +74,9 @@ public class DarklingsModInitializer implements EditCharactersSubscriber, OnStar
             player.addMinion(Darklings.Casey);
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                     new RegrowPower(AbstractDungeon.player)));
-            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(player.getMinions().monsters.get(0), AbstractDungeon.player,
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(player.getMinions().getMonster(Anthony.ID), AbstractDungeon.player,
                     new RegrowPower(player.getMinions().getMonster(Anthony.ID))));
-            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(player.getMinions().monsters.get(1), AbstractDungeon.player,
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(player.getMinions().getMonster(Casey.ID), AbstractDungeon.player,
                     new RegrowPower(player.getMinions().getMonster(Casey.ID))));
         }
     }

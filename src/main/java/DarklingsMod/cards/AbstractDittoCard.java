@@ -1,5 +1,6 @@
 package DarklingsMod.cards;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -17,6 +18,8 @@ import java.util.Random;
 import basemod.abstracts.CustomCard;
 
 import DarklingsMod.enums.AbstractCardEnum;
+import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
+import kobting.friendlyminions.monsters.MinionMove;
 
 public abstract class AbstractDittoCard extends CustomCard {
     public String monsterID;
@@ -105,6 +108,12 @@ public abstract class AbstractDittoCard extends CustomCard {
         }catch(Exception e){
             return null;
         }
+    }
+
+    public void teachDarkittyn(AbstractFriendlyMonster darkittyn, String name, String description, Texture moveIcon, AbstractGameAction move) {
+        darkittyn.addMove(new MinionMove(name, darkittyn, moveIcon, description, () -> {
+            AbstractDungeon.actionManager.addToBottom(move);
+        }));
     }
 
     @Override
