@@ -17,21 +17,23 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Protect extends AbstractDittoCard {
-    public static final String           ID = "Protect";
-    public static final int            COST = 0;
-    public static final CardType       TYPE = CardType.SKILL;
-    public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "GremlinTsundere";
+public abstract class HyperBeam extends AbstractDittoCard {
+    public static final String           ID = "HyperBeam";
+    public static final int            COST = 5;
+    public static final CardType       TYPE = CardType.ATTACK;
+    public static final CardTarget   TARGET = CardTarget.ALL_ENEMY;
+    public static final String  MONSTERPOOL = "BronzeAutomaton";
 
-    public Protect() {
+    public HyperBeam() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
-        this.baseDamage = 7;
-        this.damageUp = 4;
+        this.baseDamage = 45;
+        this.costUp = 4;
+        this.isMultiDamage = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        actForDarkittyn(new GainBlockAction(p, p, this.block));
+        act(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        act(new EndTurnAction());
     }
 }

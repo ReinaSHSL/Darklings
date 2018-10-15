@@ -17,21 +17,22 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Protect extends AbstractDittoCard {
-    public static final String           ID = "Protect";
-    public static final int            COST = 0;
+public abstract class Heal extends AbstractDittoCard {
+    public static final String           ID = "Heal";
+    public static final int            COST = 2;
     public static final CardType       TYPE = CardType.SKILL;
     public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "GremlinTsundere";
+    public static final String  MONSTERPOOL = "Mystic";
 
-    public Protect() {
+    public Heal() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
-        this.baseDamage = 7;
-        this.damageUp = 4;
+        this.baseMagicNumber = 16;
+        this.magicNumberUp = 4;
+        this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        actForDarkittyn(new GainBlockAction(p, p, this.block));
+        actForDarkittyn(new HealAction(p, p, this.magicNumber));
     }
 }

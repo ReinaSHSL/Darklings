@@ -12,26 +12,26 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
+import DarklingsMod.powers.SporeCloudPower;
 
-public abstract class Protect extends AbstractDittoCard {
-    public static final String           ID = "Protect";
-    public static final int            COST = 0;
-    public static final CardType       TYPE = CardType.SKILL;
+public abstract class SporeCloud extends AbstractDittoCard {
+    public static final String           ID = "SporeCloud";
+    public static final int            COST = 1;
+    public static final CardType       TYPE = CardType.POWER;
     public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "GremlinTsundere";
+    public static final String  MONSTERPOOL = "FungiBeast";
 
-    public Protect() {
+    public SporeCloud() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
-        this.baseDamage = 7;
-        this.damageUp = 4;
+        this.baseMagicNumber = 5;
+        this.magicNumberUp = 5;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        actForDarkittyn(new GainBlockAction(p, p, this.block));
+        actForDarklings(new ApplyPowerAction(p, p, new SporeCloudPower(p, this.magicNumber), this.magicNumber));
     }
 }

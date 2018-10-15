@@ -1,5 +1,6 @@
 package DarklingsMod.cards;
 
+import DarklingsMod.powers.WoundPower;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
@@ -15,24 +16,32 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.vfx.combat.ScreenOnFireEffect;
+
 import DarklingsMod.cards.AbstractDittoCard;
+import DarklingsMod.powers.BurnPower;
 
-public abstract class Rake extends AbstractDittoCard {
-    public static final String           ID = "Rake";
-    public static final int            COST = 1;
+public abstract class BigStab extends AbstractDittoCard {
+    public static final String           ID = "BigStab";
+    public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;
-    public static final CardTarget   TARGET = CardTarget.ALL_ENEMY;
-    public static final String  MONSTERPOOL = "SlaverBlue";
+    public static final CardTarget   TARGET = CardTarget.ENEMY;
+    public static final String  MONSTERPOOL = "BookOfStabbing";
 
-    public Rake() {
+    public BigStab() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
-        this.baseDamage = 7;
+        this.baseDamage = 21;
         this.damageUp = 3;
-        this.isMultiDamage = true;
+
+        this.baseMagicNumber = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));        
+        if (this.upgraded) {
+            act(new ApplyPowerAction(m, p, new WoundPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+        }
     }
 }

@@ -1,5 +1,6 @@
 package DarklingsMod.cards;
 
+import DarklingsMod.powers.WoundPower;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
@@ -17,21 +18,25 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Protect extends AbstractDittoCard {
-    public static final String           ID = "Protect";
-    public static final int            COST = 0;
-    public static final CardType       TYPE = CardType.SKILL;
-    public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "GremlinTsundere";
+public abstract class Whip extends AbstractDittoCard {
+    public static final String           ID = "Whip";
+    public static final int            COST = 1;
+    public static final CardType       TYPE = CardType.ATTACK;
+    public static final CardTarget   TARGET = CardTarget.ENEMY;
+    public static final String  MONSTERPOOL = "SlaverBoss";
 
-    public Protect() {
+    public Whip() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
-        this.baseDamage = 7;
-        this.damageUp = 4;
+        this.baseDamage = 4;
+        this.damageUp = 3;
+
+        this.baseMagicNumber = 2;
+        this.magicNumberUp = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        actForDarkittyn(new GainBlockAction(p, p, this.block));
+        act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        act(new ApplyPowerAction(m, p, new WoundPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
     }
 }

@@ -124,14 +124,14 @@ public abstract class AbstractDittoCard extends CustomCard {
         }
     }
 
-    @Override
-    public AbstractCard makeCopy() {
-        AbstractCard c = null;
-        try {
-            c = (AbstractDittoCard)this.getClass().newInstance(); 
-        } catch (Throwable e) {
-            // ChronoMod.log(e.toString());
-        }
-        return c;
-    }
+    // @Override
+    // public AbstractCard makeCopy() {
+    //     AbstractCard c = null;
+    //     try {
+    //         c = (AbstractDittoCard)this.getClass().newInstance(); 
+    //     } catch (Throwable e) {
+    //         // ChronoMod.log(e.toString());
+    //     }
+    //     return c;
+    // }
 }

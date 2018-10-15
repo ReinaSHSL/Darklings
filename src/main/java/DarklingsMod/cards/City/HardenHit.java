@@ -17,21 +17,27 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Protect extends AbstractDittoCard {
-    public static final String           ID = "Protect";
-    public static final int            COST = 0;
-    public static final CardType       TYPE = CardType.SKILL;
-    public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "GremlinTsundere";
+public abstract class HardenHit extends AbstractDittoCard {
+    public static final String           ID = "HardenHit";
+    public static final int            COST = 2;
+    public static final CardType       TYPE = CardType.ATTACK;
+    public static final CardTarget   TARGET = CardTarget.ENEMY;
+    public static final String  MONSTERPOOL = "GremlinFat";
 
-    public Protect() {
+    public HardenHit() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
-        this.baseDamage = 7;
-        this.damageUp = 4;
+        this.baseDamage = 10;
+        this.damageUp = 2;
+        this.baseBlock = 15;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        actForDarkittyn(new GainBlockAction(p, p, this.block));
+        act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        if (!this.upgraded) {
+            act(new GainBlockAction(p, p, this.block));
+        } else {
+            actForDarklings(new GainBlockAction(p, p, this.block));
+        }
     }
 }

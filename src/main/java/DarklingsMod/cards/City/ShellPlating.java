@@ -13,25 +13,26 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Protect extends AbstractDittoCard {
-    public static final String           ID = "Protect";
-    public static final int            COST = 0;
-    public static final CardType       TYPE = CardType.SKILL;
+public abstract class ShellPlating extends AbstractDittoCard {
+    public static final String           ID = "ShellPlating";
+    public static final int            COST = 2;
+    public static final CardType       TYPE = CardType.POWER;
     public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "GremlinTsundere";
+    public static final String  MONSTERPOOL = "Shelled Parasite";
 
-    public Protect() {
+    public ShellPlating() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
-        this.baseDamage = 7;
-        this.damageUp = 4;
+        this.baseMagicNumber = 14;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        actForDarkittyn(new GainBlockAction(p, p, this.block));
+        if (this.upgraded) {
+            actForDarkittyn(new ApplyPowerAction(m, p, new PlatedArmorPower(m, this.magicNumber), this.magicNumber));
+        } 
+        act(new ApplyPowerAction(m, p, new PlatedArmorPower(m, this.magicNumber), this.magicNumber));
     }
 }
