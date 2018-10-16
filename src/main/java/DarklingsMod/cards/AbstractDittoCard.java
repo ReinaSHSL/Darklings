@@ -78,6 +78,15 @@ public abstract class AbstractDittoCard extends CustomCard {
         }
     }
 
+    public AbstractFriendlyMonster getDarkittyn(String Darkittyn) {
+        for (AbstractMonster m : ((AbstractPlayerWithMinions)AbstractDungeon.player).getMinions().monsters) {
+            if (Darkittyn == m.name) {
+                return (AbstractFriendlyMonster)m;
+            }
+        }
+        return null;
+    }
+
     public void actForDarkittyn(AbstractGameAction act) {
         String[] d = {"Casey", "Anthony"};
         String target = d[new Random().nextInt(d.length)];
@@ -108,12 +117,6 @@ public abstract class AbstractDittoCard extends CustomCard {
         }catch(Exception e){
             return null;
         }
-    }
-
-    public void teachDarkittyn(AbstractFriendlyMonster darkittyn, String name, String description, Texture moveIcon, AbstractGameAction move) {
-        darkittyn.addMove(new MinionMove(name, darkittyn, moveIcon, description, () -> {
-            AbstractDungeon.actionManager.addToBottom(move);
-        }));
     }
 
     @Override
