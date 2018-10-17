@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class TimeWarpPower extends AbstractPower
 {
-  public static final String POWER_ID = "Time Warp";
+  public static final String POWER_ID = "Darklings:Time Warp";
   private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings("Time Warp");
   public static final String NAME = powerStrings.NAME;
   public static final String[] DESC = powerStrings.DESCRIPTIONS;

@@ -35,15 +35,19 @@ public abstract class FlameTackle extends AbstractDittoCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractFriendlyMonster anthony = getDarkittyn("Anthony");
+
         act(new TeachAction(
-            getDarkittyn("Anthony"),
+            anthony,
             "Flame Tackle",
             "Deal 3 damage 2 times.",
             ImageMaster.loadImage("DarklingImgs/buddy/actions/FlameTackle.png"),
             () -> {
+                AbstractMonster target = AbstractDungeon.getRandomMonster();
+                DamageInfo info = new DamageInfo(anthony, 3, this.damageTypeForTurn);
+                info.applyPowers(anthony, target);
                 for (int i=0;i<2 ;i++ ) {
-                    AbstractMonster target = AbstractDungeon.getRandomMonster();
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(target, new DamageInfo(getDarkittyn("Anthony"), 3, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.FIRE));
                 }
             }
             ));
