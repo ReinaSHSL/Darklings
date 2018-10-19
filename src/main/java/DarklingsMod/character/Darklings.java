@@ -1,6 +1,7 @@
 package DarklingsMod.character;
 
 import DarklingsMod.cards.Strike;
+import DarklingsMod.enums.AbstractCardEnum;
 import DarklingsMod.enums.DarklingsEnum;
 import DarklingsMod.monsters.Anthony;
 import DarklingsMod.monsters.Casey;
@@ -107,7 +108,12 @@ public class Darklings extends AbstractPlayerWithMinions {
     }
 
     @Override
-    public Color getCardColor() {
+    public AbstractCard.CardColor getCardColor() {
+        return AbstractCardEnum.DARKLINGS_BLACK;
+    }
+
+    @Override
+    public Color getCardRenderColor() {
         return Color.BLACK;
     }
 
@@ -151,6 +157,28 @@ public class Darklings extends AbstractPlayerWithMinions {
     @Override
     public AbstractPlayer newInstance() {
         return new Darklings(this.name, DarklingsEnum.DARKLING);
+    }
+
+    @Override
+    public String getSpireHeartText() {
+        return "NL You blob it up...";
+    }
+
+    @Override
+    public Color getSlashAttackColor() {
+        return Color.BLACK;
+    }
+
+    @Override
+    public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
+        return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.BLUNT_HEAVY, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.BLUNT_HEAVY};
+
+    }
+
+    @Override
+    public String getVampireText() {
+        return "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~Darkling,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~";
+
     }
 
     @Override

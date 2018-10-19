@@ -52,6 +52,8 @@ public abstract class AbstractDittoCard extends CustomCard {
         this(id, cost, type, target, rarity, "Darklings");
     }
 
+
+
     public void act(AbstractGameAction act) {
         AbstractDungeon.actionManager.addToBottom(act);
     }
