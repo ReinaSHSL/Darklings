@@ -6,5 +6,107 @@
       " turns.",
       "Regains half health this turn."
     ]
+  },
+  "Darklings:AngerPower": {
+    "NAME": "Anger",
+    "DESCRIPTIONS": [
+      "Whenever an enemy doesn't attack, gain #b",
+      " #yStrength."
+    ]
+  },
+  "Darklings:AnthonysConfusionPower": {
+    "NAME": "Confusion",
+    "DESCRIPTIONS": [
+      "Anthony chooses between 1-3 random actions each turn. Stonger actions available on upgrade."
+    ]
+  },
+  "Darklings:BurnPower": {
+    "NAME": "Burn",
+    "DESCRIPTIONS": [
+      "At the end of its turn, gets dealt #b",
+      " damage."
+    ]
+  },
+  "Darklings:CountdownPower": {
+    "NAME": "Countdown",
+    "DESCRIPTIONS": [
+      "At the end of #b",
+      "turns, gain #b",
+      " #yStrength."
+    ]
+  },
+  "Darklings:DazePower": {
+    "NAME": "Daze",
+    "DESCRIPTIONS": [
+      "Is stunned when Daze reaches 5."
+    ]
+  },
+  "Darklings:FadingPower": {
+    "NAME": "Fading",
+    "DESCRIPTIONS": [
+      "HP is set to 99, but you'll die in #b",
+      " turns.",
+      " turn."
+    ]
+  },
+  "Darklings:HexPower": {
+    "NAME": "Stunned",
+    "DESCRIPTIONS": [
+      "Dazes #b",
+      " times whenever they are not attacking.",
+      " time whenever they are not attacking."
+    ]
+  },
+  "Darklings:Intangible": {
+    "NAME": "Intangible",
+    "DESCRIPTIONS": [
+      "Will reduce ALL damage taken and HP loss to #b1 in #b",
+      " turns.",
+      " turn.",
+      "Reduce ALL damage taken and HP loss to #b1 this turn."
+    ]
+  },
+  "Darklings:NapPower": {
+    "NAME": "Nap",
+    "DESCRIPTIONS": [
+      "If no cards were played this turn, gain #b",
+      " #yBlock."
+    ]
+  },
+  "Darklings:Shifting": {
+    "NAME": "Shifting",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yStrength a turn. Whenever this takes damage, it loses that much #yStrength until the end of the turn."
+    ]
+  },
+  "Darklings:SlimePower": {
+    "NAME": "Slime",
+    "DESCRIPTIONS": [
+      "Deal #b",
+      "% less damage and gain #b",
+      "% less #yBlock. Increase by #b10% for each #ySlime."
+    ]
+  },
+  "Darklings:Spore Cloud": {
+    "NAME": "Spore Cloud",
+    "DESCRIPTIONS": [
+      "On death, applies #yVulnerable to you for #b",
+      " turns."
+    ]
+  },
+  "Darklings:WoundPower": {
+    "NAME": "Wound",
+    "DESCRIPTIONS": [
+      "Negates #b",
+      " buff.",
+      " buffs."
+    ]
+  },
+  "Darklings:VoidPower": {
+    "NAME": "Void",
+    "DESCRIPTIONS": [
+      "Power does nothing currently. Maybe it'll be a countdown to some kind of effect in the future?"
+    ]
   }
 }

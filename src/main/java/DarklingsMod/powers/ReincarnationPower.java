@@ -31,11 +31,7 @@ public class ReincarnationPower extends AbstractPower {
 
     public void updateDescription()
     {
-        if (this.amount == 1) {
-            this.description = DESCRIPTIONS[2];
-        } else {
-            this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]);
-        }
+        this.description = DESCRIPTIONS[0];
     }
 
     public void onRemove()

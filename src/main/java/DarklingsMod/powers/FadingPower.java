@@ -18,8 +18,8 @@ import com.megacrit.cardcrawl.vfx.combat.HealEffect;
 public class FadingPower
   extends AbstractPower
 {
-  public static final String POWER_ID = "Darklings:Fading";
-  private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings("Fading");
+  public static final String POWER_ID = "Darklings:FadingPower";
+  private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
   public static final String NAME = powerStrings.NAME;
   public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
   public int oldMaxHp;
@@ -50,7 +50,7 @@ public class FadingPower
   public void updateDescription()
   {
     if (this.amount == 1) {
-      this.description = DESCRIPTIONS[2];
+      this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
     } else {
       this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]);
     }
@@ -66,7 +66,7 @@ public class FadingPower
     }
     else
     {
-      AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, "Fading", 1));
+      AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
       updateDescription();
     }
   }

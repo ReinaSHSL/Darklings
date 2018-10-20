@@ -1,12 +1,15 @@
 package DarklingsMod.powers;
 
 import DarklingsMod.tools.TextureLoader;
+import DarklingsMod.powers.StunPower;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 
 public class DazePower extends AbstractPower {
     public static final String POWER_ID = "Darklings:DazePower";
@@ -21,15 +24,26 @@ public class DazePower extends AbstractPower {
         this.amount = turns;
         updateDescription();
         this.img = getReincarnationPowerTexture();
+        this.type = AbstractPower.PowerType.DEBUFF;
+    }
+
+    @Override
+    public void onInitialApplication() {
+
+    }
+
+    @Override
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        if (this.amount >= 5) {
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 5));
+            AbstractDungeon.actionManager.addToBottom(new  ApplyPowerAction(this.owner, this.owner, new StunPower(this.owner, 1), 1));
+        }
     }
 
     public void updateDescription()
     {
-        if (this.amount == 1) {
-            this.description = DESCRIPTIONS[2];
-        } else {
-            this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]);
-        }
+        this.description = DESCRIPTIONS[0];
     }
 
     private static Texture getReincarnationPowerTexture() {

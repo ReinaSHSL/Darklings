@@ -21,15 +21,12 @@ public class VoidPower extends AbstractPower {
         this.amount = turns;
         updateDescription();
         this.img = getReincarnationPowerTexture();
+        this.type = AbstractPower.PowerType.DEBUFF;
     }
 
     public void updateDescription()
     {
-        if (this.amount == 1) {
-            this.description = DESCRIPTIONS[2];
-        } else {
-            this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]);
-        }
+        this.description = DESCRIPTIONS[0];
     }
 
     private static Texture getReincarnationPowerTexture() {

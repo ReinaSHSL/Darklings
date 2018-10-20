@@ -6,7 +6,10 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 
 public class BurnPower extends AbstractPower {
     public static final String POWER_ID = "Darklings:BurnPower";
@@ -21,18 +24,19 @@ public class BurnPower extends AbstractPower {
         this.amount = turns;
         updateDescription();
         this.img = getReincarnationPowerTexture();
+        this.type = AbstractPower.PowerType.DEBUFF;
     }
 
     public void updateDescription()
     {
-        if (this.amount == 1) {
-            this.description = DESCRIPTIONS[2];
-        } else {
-            this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]);
-        }
+        this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]);
     }
 
     private static Texture getReincarnationPowerTexture() {
         return TextureLoader.getTexture("DarklingImgs/powers/BurnPower.png");
+    }
+
+    public void atEndOfTurn(boolean isPlayer) {
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(this.owner, new DamageInfo(this.owner, this.amount, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.FIRE));
     }
 }

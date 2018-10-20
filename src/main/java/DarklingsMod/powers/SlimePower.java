@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 
 public class SlimePower extends AbstractPower {
     public static final String POWER_ID = "Darklings:SlimePower";
@@ -21,15 +23,34 @@ public class SlimePower extends AbstractPower {
         this.amount = turns;
         updateDescription();
         this.img = getReincarnationPowerTexture();
+        this.type = AbstractPower.PowerType.DEBUFF;
     }
 
     public void updateDescription()
     {
-        if (this.amount == 1) {
-            this.description = DESCRIPTIONS[2];
-        } else {
-            this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]);
+        this.description = DESCRIPTIONS[0] + (this.amount*10) + DESCRIPTIONS[1] + (this.amount*10) + DESCRIPTIONS[2];
+    }
+
+    public float atDamageGive(float damage, DamageInfo.DamageType type)
+    {
+        if (type == DamageInfo.DamageType.NORMAL)
+        {
+            return damage * (1.0F-(this.amount*10));
         }
+        return damage;
+    }
+
+    @Override
+    public float modifyBlock(float blockAmount)
+    {
+        return blockAmount * (1.0F-(this.amount*10));
+    }
+
+    @Override
+    public float atDamageReceive(float damage, DamageInfo.DamageType damageType)
+    {
+        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
+        return damage;
     }
 
     private static Texture getReincarnationPowerTexture() {

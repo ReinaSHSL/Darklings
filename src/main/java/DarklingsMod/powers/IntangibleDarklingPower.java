@@ -49,7 +49,15 @@ public class IntangibleDarklingPower
   
   public void updateDescription()
   {
-    this.description = DESCRIPTIONS[0];
+    if (this.amount == 0) {
+      this.description = DESCRIPTIONS[3];
+    } else {
+      if (this.amount == -1) {
+        this.description = DESCRIPTIONS[0] + Math.abs(this.amount) + DESCRIPTIONS[2];
+      } else {
+        this.description = DESCRIPTIONS[0] + Math.abs(this.amount) + DESCRIPTIONS[1];
+      }
+    }
   }
   
   public void atEndOfRound()
@@ -60,6 +68,10 @@ public class IntangibleDarklingPower
       AbstractDungeon.onModifyPower();
     } else {
       this.amount += 1;
+      if (this.amount == 0) {
+        playApplyPowerSfx();
+      }
     }
+    updateDescription();
   }
 }

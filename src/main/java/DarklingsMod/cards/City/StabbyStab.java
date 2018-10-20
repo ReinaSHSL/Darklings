@@ -50,7 +50,7 @@ public abstract class StabbyStab extends AbstractDittoCard {
             act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));        
         }
         if (this.upgraded) {
-            act(new ApplyPowerAction(m, p, new WoundPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+            act(new ApplyPowerAction(m, p, new WoundPower(m, 1), 1, true, AbstractGameAction.AttackEffect.NONE));
         }
     }
 }

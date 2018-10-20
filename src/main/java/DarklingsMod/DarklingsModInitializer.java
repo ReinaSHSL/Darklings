@@ -60,7 +60,6 @@ public class DarklingsModInitializer implements EditCharactersSubscriber, OnStar
     public void receiveEditCharacters() {
         BaseMod.addCharacter(
                 new Darklings("the Blobs", DarklingsEnum.DARKLING),
-                AbstractCardEnum.DARKLINGS_BLACK,
                 Darklings_Button,
                 Darklings_Portrait,
                 DarklingsEnum.DARKLING);

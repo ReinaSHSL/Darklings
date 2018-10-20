@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 
 public class WoundPower extends AbstractPower {
     public static final String POWER_ID = "Darklings:WoundPower";
@@ -21,14 +23,24 @@ public class WoundPower extends AbstractPower {
         this.amount = turns;
         updateDescription();
         this.img = getReincarnationPowerTexture();
+        this.type = AbstractPower.PowerType.DEBUFF;
     }
 
     public void updateDescription()
     {
         if (this.amount == 1) {
-            this.description = DESCRIPTIONS[2];
-        } else {
             this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]);
+        } else {
+            this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2]);
+        }
+    }
+
+    public void onSpecificTrigger()
+    {
+        if (this.amount <= 0) {
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+        } else {
+            AbstractDungeon.actionManager.addToTop(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         }
     }
 

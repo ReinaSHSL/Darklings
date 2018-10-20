@@ -15,19 +15,20 @@ public class HexPower extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public HexPower(AbstractCreature owner, int turns) {
+    public HexPower(AbstractCreature owner, int dazes) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.amount = turns;
+        this.amount = dazes;
         updateDescription();
         this.img = getReincarnationPowerTexture();
+        this.type = AbstractPower.PowerType.DEBUFF;
     }
 
     public void updateDescription()
     {
         if (this.amount == 1) {
-            this.description = DESCRIPTIONS[2];
+            this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2]);
         } else {
             this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]);
         }
@@ -39,7 +40,12 @@ public class HexPower extends AbstractPower {
 
     public void atStartOfTurn() {
         flash();
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.owner, this.owner, new DazePower(this.owner, 1), 1));
+        if (((AbstractMonster)this.owner).intent != AbstractMonster.Intent.ATTACK ||
+        ((AbstractMonster)this.owner).intent != AbstractMonster.Intent.ATTACK_BUFF ||
+        ((AbstractMonster)this.owner).intent != AbstractMonster.Intent.ATTACK_DEBUFF ||
+        ((AbstractMonster)this.owner).intent != AbstractMonster.Intent.ATTACK_DEFEND) {
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.owner, this.owner, new DazePower(this.owner, this.amount), this.amount));
+        }
     }
 
     private static Texture getReincarnationPowerTexture() {
