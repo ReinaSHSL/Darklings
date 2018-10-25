@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.defect.*;
 import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
+import com.esotericsoftware.spine.AnimationState;
+import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -28,6 +30,12 @@ public class GoopSpray extends AbstractDittoCard {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
         this.baseMagicNumber = 3;
         this.magicNumberUp = 2;
+
+
+    loadAnimation("images/monsters/theBottom/boss/slime/skeleton.atlas", "images/monsters/theBottom/boss/slime/skeleton.json", 1.0F);
+    
+    AnimationState.TrackEntry e = this.state.setAnimation(0, "idle", true);
+        this.skeleScale = 0.5F;
     }
 
     @Override

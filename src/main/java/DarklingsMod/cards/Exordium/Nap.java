@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.defect.*;
 import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
+import com.esotericsoftware.spine.AnimationState;
+import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -28,6 +30,10 @@ public class Nap extends AbstractDittoCard {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
         this.baseMagicNumber = 8;
         this.magicNumberUp = 4;
+
+        loadAnimation("images/monsters/theBottom/lagavulin/skeleton.atlas", "images/monsters/theBottom/lagavulin/skeleton.json", 1.0F);
+        this.state.setAnimation(0, "Idle_1", true);
+        this.skeleScale = 0.3F;
     }
 
     @Override

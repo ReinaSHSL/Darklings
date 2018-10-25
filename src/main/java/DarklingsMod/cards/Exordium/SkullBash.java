@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.defect.*;
 import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
+import com.esotericsoftware.spine.AnimationState;
+import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -36,6 +38,12 @@ public class SkullBash extends AbstractDittoCard {
 
         this.baseMagicNumber = 25;
         this.magicNumberUp = 25;
+
+    loadAnimation("images/monsters/theBottom/nobGremlin/skeleton.atlas", "images/monsters/theBottom/nobGremlin/skeleton.json", 1.0F);
+    
+    AnimationState.TrackEntry e = this.state.setAnimation(0, "animation", true);
+    e.setTimeScale(2.0F);
+        this.skeleScale = 0.5F;
     }
 
     // Yes, I copy-pasta'd the entire function here just to add a single bit of math.

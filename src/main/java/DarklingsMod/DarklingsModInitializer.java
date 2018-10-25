@@ -22,6 +22,10 @@ import com.megacrit.cardcrawl.powers.RegrowPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
+import org.apache.logging.log4j.LogManager;
+
+import org.apache.logging.log4j.Logger;
+
 
 import java.util.Properties;
 
@@ -47,6 +51,8 @@ public class DarklingsModInitializer implements EditCharactersSubscriber, OnStar
     private static final String ENERGY_ORB_BLACK_PORTRAIT = "DarklingsImgs/cardBGStronk/card_black_orb.png";
     private static final String Darklings_Portrait = "DarklingsImgs/charstuff/DarklingsBG.jpg";
     private static final String Darklings_Button = "DarklingsImgs/charstuff/DarklingsButton.png";
+
+    public static final Logger logger = LogManager.getLogger(DarklingsModInitializer.class.getName());
 
     public DarklingsModInitializer() {
         BaseMod.subscribe(this);

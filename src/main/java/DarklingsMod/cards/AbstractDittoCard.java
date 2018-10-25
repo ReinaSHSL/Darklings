@@ -1,14 +1,30 @@
 package DarklingsMod.cards;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.Color;
+
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
+
 import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
+import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
+import kobting.friendlyminions.monsters.MinionMove;
+
+import com.esotericsoftware.spine.AnimationState;
+import com.esotericsoftware.spine.AnimationStateData;
+import com.esotericsoftware.spine.Skeleton;
+import com.esotericsoftware.spine.SkeletonData;
+import com.esotericsoftware.spine.SkeletonJson;
+import com.esotericsoftware.spine.SkeletonMeshRenderer;
 
 import java.lang.reflect.*;
 import java.util.List;
@@ -18,8 +34,7 @@ import java.util.Random;
 import basemod.abstracts.CustomCard;
 
 import DarklingsMod.enums.AbstractCardEnum;
-import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
-import kobting.friendlyminions.monsters.MinionMove;
+import DarklingsMod.DarklingsModInitializer;
 
 public abstract class AbstractDittoCard extends CustomCard {
     public String monsterID;
@@ -30,9 +45,27 @@ public abstract class AbstractDittoCard extends CustomCard {
     public int magicNumberUp;
     public int costUp;
 
+    protected TextureAtlas atlas = null;
+    protected Skeleton skeleton;
+    public AnimationState state;
+    protected AnimationStateData stateData;
+
+    public float skeleOffsetX = 0.0F;
+    public float skeleOffsetY = 0.0F;
+    public float skeleScale = 1.0F;
+    public static SkeletonMeshRenderer sr;
+
     public AbstractDittoCard(String id, int cost, CardType type, CardTarget target, AbstractCard.CardRarity rarity, String monsterPool) {
         // super("Darklings:"+id, "", "DarklingsImgs/cards/" + id, cost, "", type, AbstractCardEnum.DARKLINGS_BLACK, rarity, target);
         super("Darklings:"+id, "", null, cost, "", type, AbstractCardEnum.DARKLINGS_BLACK, rarity, target);
+
+        if (type == CardType.ATTACK) {
+            this.loadCardImage("DarklingsImgs/cards/Attack.png");
+        } else if (type == CardType.SKILL) {
+            this.loadCardImage("DarklingsImgs/cards/Skill.png");
+        } else if (type == CardType.POWER) {
+            this.loadCardImage("DarklingsImgs/cards/Power.png");
+        }
 
         this.cardStrings = CardCrawlGame.languagePack.getCardStrings("Darklings:"+id);
         this.originalName = cardStrings.NAME;
@@ -139,14 +172,51 @@ public abstract class AbstractDittoCard extends CustomCard {
         }
     }
 
-    // @Override
-    // public AbstractCard makeCopy() {
-    //     AbstractCard c = null;
-    //     try {
-    //         c = (AbstractDittoCard)this.getClass().newInstance(); 
-    //     } catch (Throwable e) {
-    //         // ChronoMod.log(e.toString());
-    //     }
-    //     return c;
-    // }
+    protected void loadAnimation(String atlasUrl, String skeletonUrl, float useless) {
+        this.loadAnimation(atlasUrl, skeletonUrl);
+    }
+
+    protected void loadAnimation(String atlasUrl, String skeletonUrl)
+    {
+        this.atlas = new TextureAtlas(Gdx.files.internal(atlasUrl));
+        SkeletonJson json = new SkeletonJson(this.atlas);
+        json.setScale(Settings.scale / (2.0F*this.skeleScale));
+        SkeletonData skeletonData = json.readSkeletonData(Gdx.files.internal(skeletonUrl));
+        this.skeleton = new Skeleton(skeletonData);
+        this.skeleton.setColor(Color.WHITE);
+        this.stateData = new AnimationStateData(skeletonData);
+        this.state = new AnimationState(this.stateData);
+    }
+
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (this.skeleton != null) {
+            renderSkeleton(sb);
+        }
+    }
+
+    public void renderInLibrary(SpriteBatch sb) {
+        super.renderInLibrary(sb);
+        if (this.skeleton != null) {
+            renderSkeleton(sb);
+        }
+    }
+
+    public void renderSkeleton(SpriteBatch sb) {
+        this.state.update(Gdx.graphics.getDeltaTime());
+        this.state.apply(this.skeleton);
+        this.skeleton.getRootBone().setRotation(this.angle);
+        this.skeleton.getRootBone().setScale((2.0F * this.skeleScale) * (Settings.scale * drawScale));
+        this.skeleton.updateWorldTransform();
+
+        this.skeleton.setPosition(
+            this.current_x + skeleOffsetX,
+            this.current_y + skeleOffsetY);
+
+        sb.end();
+        CardCrawlGame.psb.begin();
+        AbstractMonster.sr.draw(CardCrawlGame.psb, this.skeleton);
+        CardCrawlGame.psb.end();
+        sb.begin();
+    }
 }

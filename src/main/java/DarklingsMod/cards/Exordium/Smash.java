@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.defect.*;
 import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
+import com.esotericsoftware.spine.AnimationState;
+import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -30,6 +32,12 @@ public class Smash extends AbstractDittoCard {
         this.damageUp = 5;
 
         this.baseMagicNumber = 1;
+
+
+    loadAnimation("images/monsters/theBottom/fatGremlin/skeleton.atlas", "images/monsters/theBottom/fatGremlin/skeleton.json", 1.0F);
+    
+    AnimationState.TrackEntry e = this.state.setAnimation(0, "animation", true);
+    e.setTimeScale(2.0F);
     }
 
     @Override

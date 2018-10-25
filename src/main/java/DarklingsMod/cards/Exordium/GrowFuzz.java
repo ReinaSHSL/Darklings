@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.defect.*;
 import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
+import com.esotericsoftware.spine.AnimationState;
+import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -32,6 +34,11 @@ public class GrowFuzz extends AbstractDittoCard {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
         this.baseMagicNumber = 1;
         this.magicNumberUp = 1;
+
+
+    loadAnimation("images/monsters/theBottom/louseRed/skeleton.atlas", "images/monsters/theBottom/louseRed/skeleton.json", 1.0F);
+    
+    AnimationState.TrackEntry e = this.state.setAnimation(0, "idle", true);
     }
 
     @Override

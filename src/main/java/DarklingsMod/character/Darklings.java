@@ -1,6 +1,6 @@
 package DarklingsMod.character;
 
-import DarklingsMod.cards.Strike;
+import DarklingsMod.cards.*;
 import DarklingsMod.enums.AbstractCardEnum;
 import DarklingsMod.enums.DarklingsEnum;
 import DarklingsMod.monsters.Anthony;
@@ -70,11 +70,21 @@ public class Darklings extends AbstractPlayerWithMinions {
 
     }
 
-
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(Strike_Red.ID);
-        retVal.add(Strike_Red.ID);
+        // retVal.add(Strike_Red.ID);
+        // retVal.add(Strike_Red.ID);
+        // retVal.add(Strike_Red.ID);
+        retVal.add("Darklings:Strike");
+        retVal.add("Darklings:Strike");
+        // retVal.add(Strike.ID);
+        // retVal.add(Strike.ID);
+        // retVal.add(Defend.ID);
+        // retVal.add(Defend.ID);
+        // retVal.add(Defend.ID);
+        // retVal.add(Chomp.ID);
+        // retVal.add(Nip.ID);
+        // retVal.add(Harden.ID);
         return retVal;
     }
 

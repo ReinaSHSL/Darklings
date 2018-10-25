@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.defect.*;
 import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
+import com.esotericsoftware.spine.AnimationState;
+import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -28,6 +30,11 @@ public class Puncture extends AbstractDittoCard {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
         this.baseDamage = 10;
         this.baseMagicNumber = 1;
+ 
+    loadAnimation("images/monsters/theBottom/thiefGremlin/skeleton.atlas", "images/monsters/theBottom/thiefGremlin/skeleton.json", 1.0F);
+    
+    AnimationState.TrackEntry e = this.state.setAnimation(0, "animation", true);
+
     }
 
     @Override
