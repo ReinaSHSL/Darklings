@@ -25,7 +25,7 @@ import com.megacrit.cardcrawl.vfx.combat.SmallLaserEffect;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class BeamWave extends AbstractDittoCard {
+public class BeamWave extends AbstractDittoCard {
     public static final String           ID = "BeamWave";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.ATTACK;

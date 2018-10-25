@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Hardifact extends AbstractDittoCard {
+public class Hardifact extends AbstractDittoCard {
     public static final String           ID = "Hardifact";
     public static final int            COST = 4;
     public static final CardType       TYPE = CardType.POWER;

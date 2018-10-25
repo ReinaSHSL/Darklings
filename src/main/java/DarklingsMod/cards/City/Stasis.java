@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.powers.*;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.actions.TopDeckAction;
 
-public abstract class Stasis extends AbstractDittoCard {
+public class Stasis extends AbstractDittoCard {
     public static final String           ID = "Stasis";
     public static final int            COST = 0;
     public static final CardType       TYPE = CardType.ATTACK;

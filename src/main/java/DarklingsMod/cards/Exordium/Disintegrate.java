@@ -24,7 +24,7 @@ import com.megacrit.cardcrawl.vfx.combat.SmallLaserEffect;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Disintegrate extends AbstractDittoCard {
+public class Disintegrate extends AbstractDittoCard {
     public static final String           ID = "Disintegrate";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.ATTACK;

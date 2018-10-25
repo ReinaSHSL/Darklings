@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Smash extends AbstractDittoCard {
+public class Smash extends AbstractDittoCard {
     public static final String           ID = "Smash";
     public static final int            COST = 0;
     public static final CardType       TYPE = CardType.ATTACK;

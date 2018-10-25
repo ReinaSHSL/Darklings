@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class ShellPlating extends AbstractDittoCard {
+public class ShellPlating extends AbstractDittoCard {
     public static final String           ID = "ShellPlating";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.POWER;
@@ -26,6 +26,8 @@ public abstract class ShellPlating extends AbstractDittoCard {
     public ShellPlating() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
         this.baseMagicNumber = 14;
+
+        this.exhaust = true;
     }
 
     @Override

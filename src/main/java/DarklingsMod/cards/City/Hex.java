@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.powers.*;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.HexPower;
 
-public abstract class Hex extends AbstractDittoCard {
+public class Hex extends AbstractDittoCard {
     public static final String           ID = "Hex";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.POWER;

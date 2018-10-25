@@ -22,7 +22,7 @@ import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.actions.TeachAction;
 
-public abstract class Forge extends AbstractDittoCard {
+public class Forge extends AbstractDittoCard {
     public static final String           ID = "Forge";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.POWER;

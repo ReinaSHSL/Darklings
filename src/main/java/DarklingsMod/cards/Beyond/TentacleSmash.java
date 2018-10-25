@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class TentacleSmash extends AbstractDittoCard {
+public class TentacleSmash extends AbstractDittoCard {
     public static final String           ID = "TentacleSmash";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;

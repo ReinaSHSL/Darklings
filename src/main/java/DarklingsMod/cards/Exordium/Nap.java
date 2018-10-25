@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.powers.*;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.NapPower;
 
-public abstract class Nap extends AbstractDittoCard {
+public class Nap extends AbstractDittoCard {
     public static final String           ID = "Nap";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.SKILL;

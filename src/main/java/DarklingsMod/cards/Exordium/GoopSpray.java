@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.powers.*;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.SlimePower;
 
-public abstract class GoopSpray extends AbstractDittoCard {
+public class GoopSpray extends AbstractDittoCard {
     public static final String           ID = "GoopSpray";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.SKILL;

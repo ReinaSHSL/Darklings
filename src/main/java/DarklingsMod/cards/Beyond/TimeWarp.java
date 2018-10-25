@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.TimeWarpPower;
 
-public abstract class TimeWarp extends AbstractDittoCard {
+public class TimeWarp extends AbstractDittoCard {
     public static final String           ID = "TimeWarp";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.POWER;

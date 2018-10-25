@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class AttackProtocol extends AbstractDittoCard {
+public class AttackProtocol extends AbstractDittoCard {
     public static final String           ID = "AttackProtocol";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.SKILL;

@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.vfx.combat.ScreenOnFireEffect;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.BurnPower;
 
-public abstract class Peck extends AbstractDittoCard {
+public class Peck extends AbstractDittoCard {
     public static final String           ID = "Peck";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.ATTACK;

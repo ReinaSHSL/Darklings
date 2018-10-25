@@ -26,7 +26,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.SlimePower;
 
-public abstract class Reverberate extends AbstractDittoCard {
+public class Reverberate extends AbstractDittoCard {
     public static final String           ID = "Reverberate";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;

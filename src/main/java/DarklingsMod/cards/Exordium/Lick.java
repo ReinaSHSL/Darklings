@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Lick extends AbstractDittoCard {
+public class Lick extends AbstractDittoCard {
     public static final String           ID = "Lick";
     public static final int            COST = 0;
     public static final CardType       TYPE = CardType.ATTACK;

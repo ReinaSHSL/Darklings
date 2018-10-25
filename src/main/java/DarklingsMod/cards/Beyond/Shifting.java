@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.ShiftingPower;
 
-public abstract class Shifting extends AbstractDittoCard {
+public class Shifting extends AbstractDittoCard {
     public static final String           ID = "Shifting";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.POWER;

@@ -31,7 +31,8 @@ public abstract class AbstractDittoCard extends CustomCard {
     public int costUp;
 
     public AbstractDittoCard(String id, int cost, CardType type, CardTarget target, AbstractCard.CardRarity rarity, String monsterPool) {
-        super("Darklings:"+id, "", "DarklingsImgs/cards/" + id, cost, "", type, AbstractCardEnum.DARKLINGS_BLACK, rarity, target);
+        // super("Darklings:"+id, "", "DarklingsImgs/cards/" + id, cost, "", type, AbstractCardEnum.DARKLINGS_BLACK, rarity, target);
+        super("Darklings:"+id, "", null, cost, "", type, AbstractCardEnum.DARKLINGS_BLACK, rarity, target);
 
         this.cardStrings = CardCrawlGame.languagePack.getCardStrings("Darklings:"+id);
         this.originalName = cardStrings.NAME;

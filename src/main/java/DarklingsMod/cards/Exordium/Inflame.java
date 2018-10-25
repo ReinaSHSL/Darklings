@@ -19,7 +19,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Inflame extends AbstractDittoCard {
+public class Inflame extends AbstractDittoCard {
     public static final String           ID = "Inflame";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.POWER;

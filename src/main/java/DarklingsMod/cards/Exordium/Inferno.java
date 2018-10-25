@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.vfx.combat.ScreenOnFireEffect;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.BurnPower;
 
-public abstract class Inferno extends AbstractDittoCard {
+public class Inferno extends AbstractDittoCard {
     public static final String           ID = "Inferno";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;

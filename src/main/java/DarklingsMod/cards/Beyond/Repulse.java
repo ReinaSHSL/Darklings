@@ -22,7 +22,7 @@ import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.actions.TeachAction;
 import DarklingsMod.powers.DazePower;
 
-public abstract class Repulse extends AbstractDittoCard {
+public class Repulse extends AbstractDittoCard {
     public static final String           ID = "Repulse";
     public static final int            COST = 0;
     public static final CardType       TYPE = CardType.POWER;

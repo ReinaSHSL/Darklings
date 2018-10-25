@@ -22,7 +22,7 @@ import com.megacrit.cardcrawl.vfx.combat.ScreenOnFireEffect;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.BurnPower;
 
-public abstract class StabbyStab extends AbstractDittoCard {
+public class StabbyStab extends AbstractDittoCard {
     public static final String           ID = "StabbyStab";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;

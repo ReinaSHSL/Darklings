@@ -16,8 +16,8 @@ import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Corrosive extends AbstractDittoCard {
-    public static final String           ID = "Corrosive";
+public class Corrosive extends AbstractDittoCard {
+    public static final String           ID = "CorrosiveSpit";
     public static final int            COST = 0;
     public static final CardType       TYPE = CardType.ATTACK;
     public static final CardTarget   TARGET = CardTarget.ENEMY;

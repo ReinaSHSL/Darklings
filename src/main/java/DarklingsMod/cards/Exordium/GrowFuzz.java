@@ -21,7 +21,7 @@ import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.actions.TeachAction;
 
-public abstract class GrowFuzz extends AbstractDittoCard {
+public class GrowFuzz extends AbstractDittoCard {
     public static final String           ID = "GrowFuzz";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.POWER;

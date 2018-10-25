@@ -23,7 +23,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.VoidPower;
 
-public abstract class DarkEcho extends AbstractDittoCard {
+public class DarkEcho extends AbstractDittoCard {
     public static final String           ID = "DarkEcho";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;

@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Protect extends AbstractDittoCard {
+public class Protect extends AbstractDittoCard {
     public static final String           ID = "Protect";
     public static final int            COST = 0;
     public static final CardType       TYPE = CardType.SKILL;

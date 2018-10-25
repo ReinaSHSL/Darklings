@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Triburn extends AbstractDittoCard {
+public class Triburn extends AbstractDittoCard {
     public static final String           ID = "Triburn";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.SKILL;

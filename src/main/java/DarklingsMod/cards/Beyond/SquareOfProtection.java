@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.DazePower;
 
-public abstract class SquareOfProtection extends AbstractDittoCard {
+public class SquareOfProtection extends AbstractDittoCard {
     public static final String           ID = "SquareOfProtection";
     public static final int            COST = 3;
     public static final CardType       TYPE = CardType.ATTACK;

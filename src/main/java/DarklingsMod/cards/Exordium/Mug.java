@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.actions.GainGoldAction;
 
-public abstract class Mug extends AbstractDittoCard {
+public class Mug extends AbstractDittoCard {
     public static final String           ID = "Mug";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;

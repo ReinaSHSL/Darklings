@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.actions.TeachAction;
 
-public abstract class Explode extends AbstractDittoCard {
+public class Explode extends AbstractDittoCard {
     public static final String           ID = "Explode";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.POWER;

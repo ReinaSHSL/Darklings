@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class GreatBellow extends AbstractDittoCard {
+public class GreatBellow extends AbstractDittoCard {
     public static final String           ID = "GreatBellow";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.POWER;

@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Template extends AbstractDittoCard {
+public class Template extends AbstractDittoCard {
     public static final String           ID = "Template";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.ATTACK;

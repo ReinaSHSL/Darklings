@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class CurlUp extends AbstractDittoCard {
+public class CurlUp extends AbstractDittoCard {
     public static final String           ID = "CurlUp";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.SKILL;

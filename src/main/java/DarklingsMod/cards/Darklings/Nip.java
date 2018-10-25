@@ -12,29 +12,35 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.*;
+
 import com.megacrit.cardcrawl.cards.DamageInfo;
+
+import basemod.helpers.BaseModCardTags;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public class Airborne extends AbstractDittoCard {
-    public static final String           ID = "Airborne";
+public class Nip extends AbstractDittoCard {
+    public static final String           ID = "Nip";
     public static final int            COST = 1;
-    public static final CardType       TYPE = CardType.POWER;
-    public static final CardTarget   TARGET = CardTarget.SELF;
-    public static final String  MONSTERPOOL = "Byrd";
+    public static final CardType       TYPE = CardType.ATTACK;
+    public static final CardTarget   TARGET = CardTarget.ENEMY;
+    public static final String  MONSTERPOOL = "Darklings";
 
-    public Airborne() {
-        super(ID, COST, TYPE, TARGET, MONSTERPOOL);
-        this.baseMagicNumber = 1;
+    public Nip() {
+        super(ID, COST, TYPE, TARGET, AbstractCard.CardRarity.COMMON);
+
+        this.baseDamage = 0;
+        this.damageUp = 2;
+    }
+
+    @Override
+    public void atTurnStart() {
+        this.baseDamage = AbstractDungeon.monsterHpRng.random(9, 13);
+        upgradeDamage(this.damageUp);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!this.upgraded) {
-            actForDarkittyn(new ApplyPowerAction(p, p, new FlightPower(p, 1), 1));
-        } else {
-            actForDarkittyns(new ApplyPowerAction(p, p, new FlightPower(p, 1), 1));
-        }
+        act(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 }

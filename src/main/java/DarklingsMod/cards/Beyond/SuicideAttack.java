@@ -18,7 +18,7 @@ import DarklingsMod.powers.WoundPower;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class SuicideAttack extends AbstractDittoCard {
+public class SuicideAttack extends AbstractDittoCard {
     public static final String           ID = "SuicideAttack";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.ATTACK;
@@ -27,7 +27,7 @@ public abstract class SuicideAttack extends AbstractDittoCard {
 
     public SuicideAttack() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
-        this.baseDamage = AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth;
+        this.baseDamage = 0;
         this.baseMagicNumber = 2;
         this.magicNumberUp = 1;
     }

@@ -19,7 +19,7 @@ import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.monsters.*;
 import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
 
-public abstract class TwinSlam extends AbstractDittoCard {
+public class TwinSlam extends AbstractDittoCard {
     public static final String           ID = "TwinSlam";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;

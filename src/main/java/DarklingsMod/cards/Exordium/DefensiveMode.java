@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class DefensiveMode extends AbstractDittoCard {
+public class DefensiveMode extends AbstractDittoCard {
     public static final String           ID = "DefensiveMode";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.POWER;

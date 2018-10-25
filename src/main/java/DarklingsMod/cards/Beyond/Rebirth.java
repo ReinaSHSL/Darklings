@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Rebirth extends AbstractDittoCard {
+public class Rebirth extends AbstractDittoCard {
     public static final String           ID = "Rebirth";
     public static final int            COST = 3;
     public static final CardType       TYPE = CardType.SKILL;

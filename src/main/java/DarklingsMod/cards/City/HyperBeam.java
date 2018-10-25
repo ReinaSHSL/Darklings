@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class HyperBeam extends AbstractDittoCard {
+public class HyperBeam extends AbstractDittoCard {
     public static final String           ID = "HyperBeam";
     public static final int            COST = 5;
     public static final CardType       TYPE = CardType.ATTACK;

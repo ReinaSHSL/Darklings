@@ -22,7 +22,7 @@ import com.megacrit.cardcrawl.vfx.combat.ScreenOnFireEffect;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.BurnPower;
 
-public abstract class Drool extends AbstractDittoCard {
+public class Drool extends AbstractDittoCard {
     public static final String           ID = "Drool";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.SKILL;

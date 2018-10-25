@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.SporeCloudPower;
 
-public abstract class SporeCloud extends AbstractDittoCard {
+public class SporeCloud extends AbstractDittoCard {
     public static final String           ID = "SporeCloud";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.POWER;

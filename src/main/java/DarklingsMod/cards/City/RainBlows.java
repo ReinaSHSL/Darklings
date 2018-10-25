@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.vfx.combat.ScreenOnFireEffect;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.BurnPower;
 
-public abstract class RainBlows extends AbstractDittoCard {
+public class RainBlows extends AbstractDittoCard {
     public static final String           ID = "RainBlows";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;

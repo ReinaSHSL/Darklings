@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.powers.ConstrictedPower;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.SporeCloudPower;
 
-public abstract class Constrict extends AbstractDittoCard {
+public class Constrict extends AbstractDittoCard {
     public static final String           ID = "Constrict";
     public static final int            COST = 3;
     public static final CardType       TYPE = CardType.POWER;

@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Entangle extends AbstractDittoCard {
+public class Entangle extends AbstractDittoCard {
     public static final String           ID = "Entangle";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.SKILL;

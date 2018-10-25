@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class AcidLick extends AbstractDittoCard {
+public class AcidLick extends AbstractDittoCard {
     public static final String           ID = "AcidLick";
     public static final int            COST = 0;
     public static final CardType       TYPE = CardType.ATTACK;

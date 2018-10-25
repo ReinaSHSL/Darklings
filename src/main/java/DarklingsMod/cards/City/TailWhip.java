@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class TailWhip extends AbstractDittoCard {
+public class TailWhip extends AbstractDittoCard {
     public static final String           ID = "TailWhip";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.ATTACK;

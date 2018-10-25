@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class UltimateBlast extends AbstractDittoCard {
+public class UltimateBlast extends AbstractDittoCard {
     public static final String           ID = "UltimateBlast";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;

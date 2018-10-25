@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class MegaDebuff extends AbstractDittoCard {
+public class MegaDebuff extends AbstractDittoCard {
     public static final String           ID = "MegaDebuff";
     public static final int            COST = 3;
     public static final CardType       TYPE = CardType.SKILL;

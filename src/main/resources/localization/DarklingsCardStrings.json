@@ -1,0 +1,382 @@
+{
+  "Darklings:Strike": {
+      "NAME": "Strike",
+      "DESCRIPTION": "Deal !D! damage."
+  },
+  "Darklings:Defend": {
+      "NAME": "Defend",
+      "DESCRIPTION": "Gain !B! Block."
+  },
+  "Darklings:Nip": {
+      "NAME": "Nip",
+      "DESCRIPTION": "Deal !D! damage 2 times."
+  },
+  "Darklings:Chomp": {
+      "NAME": "Chomp",
+      "DESCRIPTION": "Deal !D! damage. NL Damage randomizes between 7 and 11 at the start of each turn.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Damage randomizes between 9 and 13 at the start of each turn."
+  },
+  "Darklings:Harden": {
+      "NAME": "Harden",
+      "DESCRIPTION": "Gain !B! Block.",
+      "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! Strength."
+  },
+  "Darklings:CorrosiveSpit": {
+    "NAME": "Corrosive Spit",
+    "DESCRIPTION": "Apply !M! weak."
+  },
+  "Darklings:Wound": {
+    "NAME": "Wound",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Slime."
+  },
+  "Darklings:AcidLick": {
+    "NAME": "Acid Lick",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak."
+  },
+  "Darklings:Lick": {
+    "NAME": "Lick",
+    "DESCRIPTION": "Apply !M! vulnerable."
+  },
+  "Darklings:Tackle": {
+    "NAME": "Tackle",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Slime."
+  },
+  "Darklings:TinyTackle": {
+    "NAME": "TinyTackle",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "Darklings:Incantation": {
+    "NAME": "Incantation",
+    "DESCRIPTION": "Each Darkittyn gains !M! Strength each turn."
+  },
+  "Darklings:DarkStrike": {
+    "NAME": "Dark Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Strength affects Dark Strike !M! times. NL "
+  },
+  "Darklings:Grow": {
+    "NAME": "Grow",
+    "DESCRIPTION": "Gain !M! Strength."
+  },
+  "Darklings:SporeCloud": {
+    "NAME": "Spore Cloud",
+    "DESCRIPTION": "Anytime a Darkittyn is killed, apply !M! Vulnerable to all enemies."
+  },
+  "Darklings:Smash": {
+    "NAME": "Smash",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Apply !M! Vulnerable."
+  },
+  "Darklings:Puncture": {
+    "NAME": "Puncture",
+    "DESCRIPTION": "Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw a card."
+  },
+  "Darklings:Protect": {
+    "NAME": "Protect",
+    "DESCRIPTION": "A random Darkittyn gains !B! Block. NL "
+  },
+  "Darklings:AngryClaw": {
+    "NAME": "Angry Claw",
+    "DESCRIPTION": "All Darkittyns gain !M! Strength whenever they take damage."
+  },
+  "Darklings:UltimateBlast": {
+    "NAME": "Ultimate Blast",
+    "DESCRIPTION": "Deal !D! damage. NL End your turn."
+  },
+  "Darklings:Bellow": {
+    "NAME": "Bellow",
+    "DESCRIPTION": "Gain !M! Strength. NL Each Darkitten gains !B! Block.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL Each Darkitten gains !B! Block and !M! Strength."
+  },
+  "Darklings:Thrash": {
+    "NAME": "Thrash",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Each Darkittyn gains !B! Block."
+  },
+  "Darklings:EscapeDefense": {
+    "NAME": "Escape Defense",
+    "DESCRIPTION": "Darklings gain !B! Block."
+  },
+  "Darklings:Mug": {
+    "NAME": "Mug",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! gold. NL Exhaust."
+  },
+  "Darklings:CurlUp": {
+    "NAME": "Curl Up",
+    "DESCRIPTION": "On the their next hit, Darklings gain between !M! and !B! Block."
+  },
+  "Darklings:GrowFuzz": {
+    "NAME": "Grow Fuzz",
+    "DESCRIPTION": "Teach [#7696F6]Casey to: NL Increase [#80F280]Anthony's Strength by !M!."
+  },
+  "Darklings:Entangle": {
+    "NAME": "Entangle",
+    "DESCRIPTION": "Draw !M! cards. NL For each attack in your hand, discard it and draw a card."
+  },
+  "Darklings:Rake": {
+    "NAME": "Rake",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies."
+  },
+  "Darklings:Nap": {
+    "NAME": "Nap",
+    "DESCRIPTION": "All Darklings gain 8 block if you play no cards this turn."
+  },
+  "Darklings:ShellShock": {
+    "NAME": "Shell Shock",
+    "DESCRIPTION": "Enemy loses !M! Strength and !M! Dexterity. NL Exhaust."
+  },
+  "Darklings:Disintegrate": {
+    "NAME": "Disintegrate",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "Darklings:BeamWave": {
+    "NAME": "Beam Wave",
+    "DESCRIPTION": "Apply !M! Daze."
+  },
+  "Darklings:SkullBash": {
+    "NAME": "Skull Bash",
+    "DESCRIPTION": "Deal !D! damage. NL Does !M!% more damage to Vulnerable enemies."
+  },
+  "Darklings:GreatBellow": {
+    "NAME": "Great Bellow",
+    "DESCRIPTION": "Whenever an enemy doesn't attack, Darklings gain !M! Strength."
+  },
+  "Darklings:TwinSlam": {
+    "NAME": "Twin Slam",
+    "DESCRIPTION": "Deal !D! damage 2 times.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 2 times. NL Gain !M! Strength for each thorn you have."
+  },
+  "Darklings:DefensiveMode": {
+    "NAME": "Defensive Mode",
+    "DESCRIPTION": "All Darklings gain !M! thorns."
+  },
+  "Darklings:Preparing": {
+    "NAME": "Preparing",
+    "DESCRIPTION": "All Darklings do double damage until the end of next turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "All Darklings do double damage until the end of next turn."
+  },
+  "Darklings:GoopSpray": {
+    "NAME": "Goop Spray",
+    "DESCRIPTION": "Apply !M! Slime"
+  },
+  "Darklings:Inflame": {
+    "NAME": "Inflame",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Strength."
+  },
+  "Darklings:Inferno": {
+    "NAME": "Inferno",
+    "DESCRIPTION": "Deal !D! damage 6 times. NL Apply !M! Burn."
+  },
+  "Darklings:Peck": {
+    "NAME": "Peck",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
+  },
+  "Darklings:Airborne": {
+    "NAME": "Airborne",
+    "DESCRIPTION": "A random Darkittyn takes 1/2 damage the next time they are hit.",
+    "UPGRADE_DESCRIPTION": "Both Darkittyns take 1/2 damage the next time they are hit."
+  },
+  "Darklings:Hex": {
+    "NAME": "Hex",
+    "DESCRIPTION": "Enemy gains Daze every turn."
+  },
+  "Darklings:Debilitate": {
+    "NAME": "Debilitate",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable."
+  },
+  "Darklings:StrongGuard": {
+    "NAME": "Strong Guard",
+    "DESCRIPTION": "Darkittens each gain !B! Block."
+  },
+  "Darklings:Heal": {
+    "NAME": "Heal",
+    "DESCRIPTION": "Heal a random Darkling !M! HP. NL Exhaust."
+  },
+  "Darklings:PerplexingGlare": {
+    "NAME": "Perplexing Glare",
+    "DESCRIPTION": "Teach [#80F280]Anthony Confusion, giving him up to 3 random moves each turn.",
+    "UPGRADE_DESCRIPTION": "Teach [#80F280]Anthony Confusion, giving him up to 3 random improved moves each turn."
+  },
+  "Darklings:TailWhip": {
+    "NAME": "Tail Whip",
+    "DESCRIPTION": "Deal !D! damage. NL Apply 1 Vulnerable."
+  },
+  "Darklings:ShellPlating": {
+    "NAME": "Shell Plating",
+    "DESCRIPTION": "Gain 14 Plated Armor. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 14 Plated Armor. NL A random Darkittyn gains 14 Plated Armor. NL Exhaust. "
+  },
+  "Darklings:Suck": {
+    "NAME": "Suck",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! HP."
+  },
+  "Darklings:MalleableSkin": {
+    "NAME": "Malleable Skin",
+    "DESCRIPTION": "Teach all Darkittyns to: NL Gain !B! Block."
+  },
+  "Darklings:RainBlows": {
+    "NAME": "Rain Blows",
+    "DESCRIPTION": "Deal !D! damage 3 times."
+  },
+  "Darklings:Hardifact": {
+    "NAME": "Hardifact",
+    "DESCRIPTION": "Block no longer expires at the start of your turn.",
+    "UPGRADE_DESCRIPTION": "Block no longer expires at the start of your turn. NL Gain !M! artifact."
+  },
+  "Darklings:HardenHit": {
+    "NAME": "Harden Hit",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL All Darklings Gain !B! Block."
+  },
+  "Darklings:Agonize": {
+    "NAME": "Agonize",
+    "DESCRIPTION": "Deal !D! damage. NL Deal !M!% more damage if enemy is weak."
+  },
+  "Darklings:GrabEm": {
+    "NAME": "Grab Em'",
+    "DESCRIPTION": "Apply !M! Vulnerable to ALL enemies."
+  },
+  "Darklings:PointySpecial": {
+    "NAME": "Pointy Special",
+    "DESCRIPTION": "Deal !D! damage 2 times."
+  },
+  "Darklings:Rally": {
+    "NAME": "Rally!",
+    "DESCRIPTION": "Summon !M! Gremlin minions. NL Exhaust."
+  },
+  "Darklings:Whip": {
+    "NAME": "Whip",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Wounds."
+  },
+  "Darklings:StabbyStab": {
+    "NAME": "Stabby Stab",
+    "DESCRIPTION": "Deal !D! damage 2 times. NL Stab number increases each time this card is drawn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 2 times. NL Apply a Wound. NL Stab number increases each time this card is drawn."
+  },
+  "Darklings:BigStab": {
+    "NAME": "Big Stab",
+    "DESCRIPTION": "Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Wound."
+  },
+  "Darklings:DefensiveStance": {
+    "NAME": "Defensive Stance",
+    "DESCRIPTION": "Remove Debuffs from all Darklings.",
+    "UPGRADE_DESCRIPTION": "Remove Debuffs from all Darklings. NL Gain !M! Strength."
+  },
+  "Darklings:Forge": {
+    "NAME": "Forge",
+    "DESCRIPTION": "Teach [#7696F6]Casey to: NL All Darklings gain !M! Block at the end of their turn."
+  },
+  "Darklings:MegaDebuff": {
+    "NAME": "Mega Debuff",
+    "DESCRIPTION": "Apply !M! Vulnerable and Weak to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable and Weak to ALL enemies. NL ALL enemies lose !M! Strength and !M! Dexterity. NL Exhaust."
+  },
+  "Darklings:FlameTackle": {
+    "NAME": "Flame Tackle",
+    "DESCRIPTION": "Teach [#80F280]Anthony to: NL Deal !D! damage 2 times."
+  },
+  "Darklings:HyperBeam": {
+    "NAME": "Hyper Beam",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL End your turn."
+  },
+  "Darklings:Stasis": {
+    "NAME": "Stasis",
+    "DESCRIPTION": "Put !M! cards at the top of your deck."
+  },
+  "Darklings:Explode": {
+    "NAME": "Explode",
+    "DESCRIPTION": "Teach both Darkittyns to: NL Deal 30 damage to ALL enemies. NL Darkittyn dies."
+  },
+  "Darklings:Repulse": {
+    "NAME": "Repulse",
+    "DESCRIPTION": "Teach [#7696F6]Casey to: NL Apply !M! Daze."
+  },
+  "Darklings:Spines": {
+    "NAME": "Spines",
+    "DESCRIPTION": "All Darklings gain !M! thorns. NL Decreases by 1 each time used in combat."
+  },
+  "Darklings:AttackProtocol": {
+    "NAME": "Attack Protocol",
+    "DESCRIPTION": "Gain !M! Strength."
+  },
+  "Darklings:Laser": {
+    "NAME": "Laser",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Burn."
+  },
+  "Darklings:SnakeStrike": {
+    "NAME": "Snake Strike",
+    "DESCRIPTION": "Deal !D! damage 2 times.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 2 times. NL Apply !M! Weak."
+  },
+  "Darklings:SuicideAttack": {
+    "NAME": "Suicide Attack",
+    "DESCRIPTION": "Deal !D! damage. NL Damage increases by HP missing. NL Deal !M! Wound.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Damage increases by twice HP missing. NL Deal !M! Wound."
+  },
+  "Darklings:Constrict": {
+    "NAME": "Constrict",
+    "DESCRIPTION": "Enemy takes !D! damage at the end of their turn."
+  },
+  "Darklings:TentacleSmash": {
+    "NAME": "Tentacle Smash",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "Darklings:Shifting": {
+    "NAME": "Shifting",
+    "DESCRIPTION": "Darklings gain !M! Strength a turn. NL Whenever they take damage, they lose that much Strength until the end of their turn."
+  },
+  "Darklings:Fading": {
+    "NAME": "Fading",
+    "DESCRIPTION": "Darkittyn max hp is set to 999 for combat, but it dies at the end of !M! turns."
+  },
+  "Darklings:NomNomNom": {
+    "NAME": "Nom Nom Nom",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Every second turn, add an additional hit."
+  },
+  "Darklings:Drool": {
+    "NAME": "Drool",
+    "DESCRIPTION": "Draw !M! cards."
+  },
+  "Darklings:Intrigible": {
+    "NAME": "Intrigible",
+    "DESCRIPTION": "Each turn, Intangible rotates between the three Darklings."
+  },
+  "Darklings:Triburn": {
+    "NAME": "Tri-burn",
+    "DESCRIPTION": "Apply !M! Burn."
+  },
+  "Darklings:Countdown": {
+    "NAME": "Countdown",
+    "DESCRIPTION": "In 5 turns, add !M! Strength to ALL Darklings."
+  },
+  "Darklings:Glare": {
+    "NAME": "Glare",
+    "DESCRIPTION": "Apply !M! Weak. NL Apply Slow. NL Exhaust."
+  },
+  "Darklings:CircleOfPower": {
+    "NAME": "Circle of Power",
+    "DESCRIPTION": "Deal !D! damage 2 times. NL All Darklings gain !M! Strength."
+  },
+  "Darklings:SquareOfProtection": {
+    "NAME": "Square of Protection",
+    "DESCRIPTION": "Deal !D! damage 2 times. NL All Darklings gain !M! Plated Armor."
+  },
+  "Darklings:TimeWarp": {
+    "NAME": "Time Warp",
+    "DESCRIPTION": "Every 12 cards played, gain !M! Strength and end your turn."
+  },
+  "Darklings:Reverberate": {
+    "NAME": "Reverberate",
+    "DESCRIPTION": "Deal !D! damage 3 times to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 3 times to ALL enemies. NL Apply !M! Slime."
+  },
+  "Darklings:DarkEcho": {
+    "NAME": "Dark Echo",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Void. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Void."
+  },
+  "Darklings:Rebirth": {
+    "NAME": "Rebirth",
+    "DESCRIPTION": "Revive a dead Darkittyn to full HP. NL Exhaust."
+  }
+}

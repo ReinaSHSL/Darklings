@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class CircleOfPower extends AbstractDittoCard {
+public class CircleOfPower extends AbstractDittoCard {
     public static final String           ID = "CircleOfPower";
     public static final int            COST = 3;
     public static final CardType       TYPE = CardType.ATTACK;

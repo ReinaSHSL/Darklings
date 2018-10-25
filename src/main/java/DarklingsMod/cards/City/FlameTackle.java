@@ -22,7 +22,7 @@ import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.actions.TeachAction;
 
-public abstract class FlameTackle extends AbstractDittoCard {
+public class FlameTackle extends AbstractDittoCard {
     public static final String           ID = "FlameTackle";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.POWER;
@@ -31,12 +31,16 @@ public abstract class FlameTackle extends AbstractDittoCard {
 
     public FlameTackle() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
+
+        this.baseDamage = 3;
+        this.damageUp = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractFriendlyMonster anthony = getDarkittyn("Anthony");
 
+        if (!this.upgraded) {
         act(new TeachAction(
             anthony,
             "Flame Tackle",
@@ -51,5 +55,21 @@ public abstract class FlameTackle extends AbstractDittoCard {
                 }
             }
             ));
+        } else {
+        act(new TeachAction(
+            anthony,
+            "Flame Tackle+",
+            "Deal 4 damage 2 times.",
+            ImageMaster.loadImage("DarklingImgs/buddy/actions/FlameTackle.png"),
+            () -> {
+                AbstractMonster target = AbstractDungeon.getRandomMonster();
+                DamageInfo info = new DamageInfo(anthony, 4, this.damageTypeForTurn);
+                info.applyPowers(anthony, target);
+                for (int i=0;i<2 ;i++ ) {
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.FIRE));
+                }
+            }
+            ));
+        }
     }
 }

@@ -17,8 +17,8 @@ import com.megacrit.cardcrawl.powers.*;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.AnthonysConfusionPower;
 
-public abstract class Confusion extends AbstractDittoCard {
-    public static final String           ID = "Confusion";
+public class Confusion extends AbstractDittoCard {
+    public static final String           ID = "PerplexingGlare";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.POWER;
     public static final CardTarget   TARGET = CardTarget.SELF;

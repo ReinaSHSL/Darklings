@@ -22,7 +22,7 @@ import DarklingsMod.cards.AbstractDittoCard;
 
 import java.util.ArrayList;
 
-public abstract class SkullBash extends AbstractDittoCard {
+public class SkullBash extends AbstractDittoCard {
     public static final String           ID = "SkullBash";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;

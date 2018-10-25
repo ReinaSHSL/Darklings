@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.powers.*;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Glare extends AbstractDittoCard {
+public class Glare extends AbstractDittoCard {
     public static final String           ID = "Glare";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.SKILL;

@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.powers.*;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.IntangibleDarklingPower;
 
-public abstract class Intrigible extends AbstractDittoCard {
+public class Intrigible extends AbstractDittoCard {
     public static final String           ID = "Intrigible";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.POWER;

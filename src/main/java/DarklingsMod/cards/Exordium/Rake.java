@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Rake extends AbstractDittoCard {
+public class Rake extends AbstractDittoCard {
     public static final String           ID = "Rake";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.ATTACK;

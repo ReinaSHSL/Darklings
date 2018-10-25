@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class Puncture extends AbstractDittoCard {
+public class Puncture extends AbstractDittoCard {
     public static final String           ID = "Puncture";
     public static final int            COST = 1;
     public static final CardType       TYPE = CardType.ATTACK;

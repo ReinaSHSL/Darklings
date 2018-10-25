@@ -22,7 +22,7 @@ import com.megacrit.cardcrawl.core.Settings;
 
 import DarklingsMod.cards.AbstractDittoCard;
 
-public abstract class SnakeStrike extends AbstractDittoCard {
+public class SnakeStrike extends AbstractDittoCard {
     public static final String           ID = "SnakeStrike";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.ATTACK;

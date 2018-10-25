@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.FadingPower;
 
-public abstract class Fading extends AbstractDittoCard {
+public class Fading extends AbstractDittoCard {
     public static final String           ID = "Fading";
     public static final int            COST = 0;
     public static final CardType       TYPE = CardType.POWER;

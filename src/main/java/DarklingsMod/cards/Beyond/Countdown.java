@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.powers.*;
 import DarklingsMod.cards.AbstractDittoCard;
 import DarklingsMod.powers.CountdownPower;
 
-public abstract class Countdown extends AbstractDittoCard {
+public class Countdown extends AbstractDittoCard {
     public static final String           ID = "Countdown";
     public static final int            COST = 2;
     public static final CardType       TYPE = CardType.SKILL;
