@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -36,6 +37,7 @@ public class DefensiveMode extends AbstractDittoCard {
     this.state.setAnimation(0, "defensive", true);
         this.skeleScale = 0.33F;
         this.skeleOffsetY = -32.0F;
+        this.renderTint = Color.GOLDENROD;
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -34,6 +35,7 @@ public class Nap extends AbstractDittoCard {
         loadAnimation("images/monsters/theBottom/lagavulin/skeleton.atlas", "images/monsters/theBottom/lagavulin/skeleton.json", 1.0F);
         this.state.setAnimation(0, "Idle_1", true);
         this.skeleScale = 0.3F;
+        this.renderTint = Color.ORANGE;
     }
 
     @Override

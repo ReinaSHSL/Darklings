@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -36,6 +37,12 @@ public class RainBlows extends AbstractDittoCard {
         this.damageUp = 1;
 
         this.baseMagicNumber = 3;
+        loadAnimation("images/monsters/theCity/snakePlant/skeleton.atlas", "images/monsters/theCity/snakePlant/skeleton.json", 1.0F);
+        
+        AnimationState.TrackEntry e = this.state.setAnimation(0, "Attack", true);
+        this.skeleScale = 0.5F;
+        this.renderTint = Color.GREEN;
+        this.skeleOffsetX = 28.0F;
     }
 
     @Override

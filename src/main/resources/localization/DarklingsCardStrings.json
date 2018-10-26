@@ -102,7 +102,7 @@
   },
   "Darklings:CurlUp": {
     "NAME": "Curl Up",
-    "DESCRIPTION": "On the their next hit, Darklings gain between !M! and !B! Block."
+    "DESCRIPTION": "On the their next hit, Darklings gain between !B! and !B!+4 Block."
   },
   "Darklings:GrowFuzz": {
     "NAME": "Grow Fuzz",

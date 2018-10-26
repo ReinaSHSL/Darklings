@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -37,6 +38,11 @@ public class StabbyStab extends AbstractDittoCard {
         this.damageUp = 1;
 
         this.baseMagicNumber = 2;
+        loadAnimation("images/monsters/theCity/stabBook/skeleton.atlas", "images/monsters/theCity/stabBook/skeleton.json", 1.0F);
+        
+        AnimationState.TrackEntry e = this.state.setAnimation(0, "Attack", true);
+        this.skeleScale = 0.4F;
+        this.renderTint = Color.PURPLE;
     }
 
     @Override

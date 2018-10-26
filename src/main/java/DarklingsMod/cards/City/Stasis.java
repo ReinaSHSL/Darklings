@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -30,6 +31,7 @@ public class Stasis extends AbstractDittoCard {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
         this.baseMagicNumber = 1;
         this.magicNumberUp = 1;
+        this.renderTint = Color.GOLD;
     }
 
     @Override

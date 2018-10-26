@@ -3,6 +3,7 @@ package DarklingsMod.cards;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.Color;
 
@@ -10,10 +11,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 
 import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
 import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
@@ -26,12 +29,15 @@ import com.esotericsoftware.spine.SkeletonData;
 import com.esotericsoftware.spine.SkeletonJson;
 import com.esotericsoftware.spine.SkeletonMeshRenderer;
 
+import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
+
 import java.lang.reflect.*;
 import java.util.List;
 import java.util.Arrays;
 import java.util.Random;
 
 import basemod.abstracts.CustomCard;
+import basemod.ReflectionHacks;
 
 import DarklingsMod.enums.AbstractCardEnum;
 import DarklingsMod.DarklingsModInitializer;
@@ -55,6 +61,8 @@ public abstract class AbstractDittoCard extends CustomCard {
     public float skeleScale = 1.0F;
     public static SkeletonMeshRenderer sr;
 
+    public Color renderTint = Color.WHITE.cpy();
+
     public AbstractDittoCard(String id, int cost, CardType type, CardTarget target, AbstractCard.CardRarity rarity, String monsterPool) {
         // super("Darklings:"+id, "", "DarklingsImgs/cards/" + id, cost, "", type, AbstractCardEnum.DARKLINGS_BLACK, rarity, target);
         super("Darklings:"+id, "", null, cost, "", type, AbstractCardEnum.DARKLINGS_BLACK, rarity, target);
@@ -76,6 +84,7 @@ public abstract class AbstractDittoCard extends CustomCard {
 
         initializeTitle();
         initializeDescription();
+        UnlockTracker.markCardAsSeen(this.cardID);
     }
 
     public AbstractDittoCard(String id, int cost, CardType type, CardTarget target, String monsterPool) {
@@ -85,8 +94,6 @@ public abstract class AbstractDittoCard extends CustomCard {
     public AbstractDittoCard(String id, int cost, CardType type, CardTarget target, AbstractCard.CardRarity rarity) {
         this(id, cost, type, target, rarity, "Darklings");
     }
-
-
 
     public void act(AbstractGameAction act) {
         AbstractDungeon.actionManager.addToBottom(act);
@@ -160,7 +167,7 @@ public abstract class AbstractDittoCard extends CustomCard {
         if (!this.upgraded) {
             upgradeName();
             
-            if (this.cardStrings.UPGRADE_DESCRIPTION != "") {
+            if (this.cardStrings.UPGRADE_DESCRIPTION != "" && this.cardStrings.UPGRADE_DESCRIPTION != null) {
                 this.rawDescription = this.cardStrings.UPGRADE_DESCRIPTION;   
                 initializeDescription();
             }
@@ -197,6 +204,7 @@ public abstract class AbstractDittoCard extends CustomCard {
 
     public void renderInLibrary(SpriteBatch sb) {
         super.renderInLibrary(sb);
+        if ((SingleCardViewPopup.isViewingUpgrade) && (this.isSeen) && (!this.isLocked)) { return; }
         if (this.skeleton != null) {
             renderSkeleton(sb);
         }
@@ -218,5 +226,37 @@ public abstract class AbstractDittoCard extends CustomCard {
         AbstractMonster.sr.draw(CardCrawlGame.psb, this.skeleton);
         CardCrawlGame.psb.end();
         sb.begin();
+    }
+
+    @SpireOverride
+    protected void renderPortrait(SpriteBatch sb)
+    {
+        TextureAtlas.AtlasRegion tmpPortrait = (TextureAtlas.AtlasRegion)ReflectionHacks.getPrivate(this, AbstractCard.class, "portrait");
+
+        float drawX = this.current_x - 125.0F;
+        float drawY = this.current_y - 95.0F;
+        
+        Texture img = null;
+        if (this.portraitImg != null) {
+          img = this.portraitImg;
+        }
+        if (!this.isLocked)
+        {
+          if (tmpPortrait != null)
+          {
+            drawX = this.current_x - tmpPortrait.packedWidth / 2.0F;
+            drawY = this.current_y - tmpPortrait.packedHeight / 2.0F;
+            sb.setColor(this.renderTint);
+            sb.draw(tmpPortrait, drawX, drawY + 72.0F, tmpPortrait.packedWidth / 2.0F, tmpPortrait.packedHeight / 2.0F - 72.0F, tmpPortrait.packedWidth, tmpPortrait.packedHeight, this.drawScale * Settings.scale, this.drawScale * Settings.scale, this.angle);
+          }
+          else if (img != null)
+          {
+            sb.setColor(this.renderTint);
+            sb.draw(img, drawX, drawY + 72.0F, 125.0F, 23.0F, 250.0F, 190.0F, this.drawScale * Settings.scale, this.drawScale * Settings.scale, this.angle, 0, 0, 250, 190, false, false);
+          }
+        }
+        else {
+          sb.draw(this.portraitImg, drawX, drawY + 72.0F, 125.0F, 23.0F, 250.0F, 190.0F, this.drawScale * Settings.scale, this.drawScale * Settings.scale, this.angle, 0, 0, 250, 190, false, false);
+        }
     }
 }

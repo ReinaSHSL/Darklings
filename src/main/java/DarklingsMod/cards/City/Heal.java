@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -31,6 +32,11 @@ public class Heal extends AbstractDittoCard {
         this.baseMagicNumber = 16;
         this.magicNumberUp = 4;
         this.exhaust = true;
+        loadAnimation("images/monsters/theCity/healer/skeleton.atlas", "images/monsters/theCity/healer/skeleton.json", 1.0F);
+        
+        AnimationState.TrackEntry e = this.state.setAnimation(0, "Attack", true);
+        this.skeleScale = 0.6F;
+        this.renderTint = Color.LIME;
     }
 
     @Override

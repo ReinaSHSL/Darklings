@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -29,6 +30,12 @@ public class Hex extends AbstractDittoCard {
     public Hex() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
         this.costUp = 0;
+        loadAnimation("images/monsters/theCity/chosen/skeleton.atlas", "images/monsters/theCity/chosen/skeleton.json", 1.0F);
+        
+        AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
+        this.skeleScale = 0.66F;
+        this.renderTint = Color.SLATE;
+        e.setTimeScale(3.0F);
     }
 
     @Override

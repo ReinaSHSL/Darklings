@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -30,6 +31,12 @@ public class MegaDebuff extends AbstractDittoCard {
     public MegaDebuff() {
         super(ID, COST, TYPE, TARGET, MONSTERPOOL);
         this.baseMagicNumber = 3;
+        loadAnimation("images/monsters/theCity/collector/skeleton.atlas", "images/monsters/theCity/collector/skeleton.json", 1.0F);
+        
+        AnimationState.TrackEntry e = this.state.setAnimation(0, "idle", true);
+        this.skeleScale = 0.66F;
+        this.renderTint = Color.TEAL;
+        this.skeleOffsetY = -32.0F;
     }
 
     @Override

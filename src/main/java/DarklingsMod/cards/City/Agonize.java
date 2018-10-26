@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -38,6 +39,14 @@ public class Agonize extends AbstractDittoCard {
 
         this.baseMagicNumber = 25;
         this.magicNumberUp = 25;
+
+        loadAnimation("images/monsters/theCity/romeo/skeleton.atlas", "images/monsters/theCity/romeo/skeleton.json", 1.0F);
+        
+        AnimationState.TrackEntry e = this.state.setAnimation(0, "Hit", true);
+        this.skeleScale = 0.66F;
+        this.renderTint = Color.RED;
+        e.setTimeScale(0.25F);
+
     }
 
     // Yes, I copy-pasta'd the entire function here just to add a single bit of math.

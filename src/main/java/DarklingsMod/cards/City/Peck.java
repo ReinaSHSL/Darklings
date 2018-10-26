@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -37,6 +38,11 @@ public class Peck extends AbstractDittoCard {
         this.baseMagicNumber = 5;
         this.magicNumberUp = 1;
         this.exhaust = true;
+        loadAnimation("images/monsters/theCity/byrd/grounded.atlas", "images/monsters/theCity/byrd/grounded.json", 1.0F);
+        
+        AnimationState.TrackEntry e = this.state.setAnimation(0, "idle", true);
+        this.renderTint = Color.OLIVE;
+        this.skeleOffsetY = 20.0F;
     }
 
     @Override

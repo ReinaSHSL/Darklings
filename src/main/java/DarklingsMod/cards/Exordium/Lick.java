@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.utility.*;
 import com.megacrit.cardcrawl.actions.unique.*;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -35,6 +36,7 @@ public class Lick extends AbstractDittoCard {
     AnimationState.TrackEntry e = this.state.setAnimation(0, "idle", true);
         this.skeleScale = 0.66F;
         this.skeleOffsetY = 20.0F;
+        this.renderTint = Color.SLATE;
         }
 
     @Override
